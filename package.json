@@ -16,6 +16,7 @@
     "change-case": "^3.0.2",
     "express": "^4.16.3",
     "nodemon": "^1.17.4",
-    "request": "^2.86.0"
+    "request": "^2.86.0",
+    "str-replace": "0.0.5"
   }
 }

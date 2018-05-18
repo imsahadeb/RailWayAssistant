@@ -3,6 +3,7 @@ const axios = require('axios');
 const changeCase = require('change-case');
 const bodyParser = require('body-parser');
 const request_data= require('request');
+var replace = require("str-replace");
 const app = express();
 const API_KEY1= "q86si59pft";
 const API_KEY2 = "ye1rpmx0tk";
@@ -30,7 +31,8 @@ app.post('/api',(request,res)=>{
         console.log(train_name);
         res.status(200).json({
             'fulfillmentText':"The Train Number " + info.train['number'] + ','
-             + changeCase.titleCase(info.train['name'])  + ' and the '+changeCase.titleCase(position)
+            + replace("Exp").from(changeCase.titleCase(info.train['name'])).with("Express")
+            + ' and the '+changeCase.titleCase(position)
         });
         res.end();
 
@@ -45,7 +47,8 @@ app.post('/api',(request,res)=>{
         let train_name=info.train['name'];
         console.log(train_name);
         res.status(200).json({
-            'fulfillmentText':"The name of the Train Number " +info.train['number']+ ' is ' + changeCase.titleCase(train_name)
+            'fulfillmentText':"The name of the Train Number " +info.train['number']+ ' is '
+             +replace("Exp").from(changeCase.titleCase(info.train['name'])).with("Express")
         });
         res.end();
 
