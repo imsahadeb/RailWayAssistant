@@ -26,9 +26,7 @@ app.post('/api',(request,res)=>{
         });
 
     });
-    // res.json({
-    //     'fulfillmentText':train
-    // })
+   
 
 
 });
