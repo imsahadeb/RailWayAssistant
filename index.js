@@ -45,7 +45,7 @@ app.post('/api',(request,res)=>{
         let train_name=info.train['name'];
         console.log(train_name);
         res.status(200).json({
-            'fulfillmentText':"Name of the  train is: " + train_name
+            'fulfillmentText':"The name of the Train Number " +info.train['number']+ ' is ' + changeCase.titleCase(train_name)
         });
         res.end();
 
