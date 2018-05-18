@@ -14,29 +14,18 @@ app.use(
 app.post('/api',(request,res)=>{
     let train = request.body.queryResult.parameters['train-no'];
 
-    let find_train_url='https://api.railwayapi.com/v2/name-number/train/'+train+'/apikey/q86si59pft/';
-    // axios.get(find_train_url)
-    //    .then(response=>{
-    //        //response
-    //        let info=response.data;
-    //        let train_name=info.train['name'];
-    //        //console.log(train_name);
-    //        res.status(200).json({
-    //         'fulfillmentText':train_name
-    //          });
-    //    })
-    //    .catch(error=>{
-    //        console.log(error);
-    //    });
-   
-    request_data(find_train_url,(req,response,body)=>{
-        let info= JSON.parse(body);
-        let train_name="sahadeb";
-        console.log(train_name);
-        res.json({
-            'fulfillmentText':"Name of the  train is: " +train_name
-        });
-    });
+    // let find_train_url='https://api.railwayapi.com/v2/name-number/train/'+train+'/apikey/q86si59pft/'
+    // request_data(find_train_url,(req,response,body)=>{
+    //     let info= JSON.parse(body);
+    //     let train_name="sahadeb";
+    //     console.log(train_name);
+    //     res.json({
+    //         'fulfillmentText':"Name of the  train is: " +train_name
+    //     });
+    // });
+    res.json({
+        'fulfillmentText':train
+    })
 
 
 });
