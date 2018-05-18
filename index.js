@@ -12,7 +12,7 @@ app.use(
   app.use(bodyParser.json());
 
 app.post('/api',(request,res)=>{
-    let train = request.body.queryResult.parameters['number'];
+    let train = request.body.queryResult.parameters['train_no'];
 
     // let find_train_url='https://api.railwayapi.com/v2/name-number/train/'+train+'/apikey/q86si59pft/'
     // request_data(find_train_url,(req,response,body)=>{
