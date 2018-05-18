@@ -30,11 +30,12 @@ app.post('/api',(request,res)=>{
     //    .catch(error=>{
     //        console.log(error);
     //    });
+   
     request_data(find_train_url,(req,response,body)=>{
         let info= JSON.parse(body);
         let train_name=info.train['name'];
         console.log(train_name);
-        res.status(200).json({
+        res.json({
             'fulfillmentText':train_name
         });
     });
