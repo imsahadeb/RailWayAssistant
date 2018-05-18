@@ -13,19 +13,42 @@ app.use(
   app.use(bodyParser.json());
 
 app.post('/api',(request,res)=>{
-    let train = request.body.queryResult.parameters['train_no'];
 
-    let find_train_url='https://api.railwayapi.com/v2/name-number/train/'+train+'/apikey/'+API_KEY2+'/'
+    var train_no = request.body.queryResult.parameters['train_no'];
+    var find_position_by_no=request.body.queryResult.parameters['find_position_by_no'];
+
+    if(find_position_by_no){
+        let find_train_url='https://api.railwayapi.com/v2/live/train/'+find_position_by_no+'/date/18-05-2018/apikey/'+API_KEY2+'/'
+        request_data(find_train_url,(req,response,body)=>{
+        console.log(find_train_url);
+        let info= JSON.parse(body);
+        let train_name=info.train['name'];
+        let position = info['position'];
+        
+        console.log(train_name);
+        res.status(200).json({
+            'fulfillmentText':"The Train Number " + info.train['number'] + ',' + info.train['name'] + ' and the ' +position
+        });
+        res.end();
+
+    });
+    }
+
+   if(train_no){
+    let find_train_url='https://api.railwayapi.com/v2/name-number/train/'+train_no+'/apikey/'+API_KEY2+'/'
     request_data(find_train_url,(req,response,body)=>{
         console.log(find_train_url);
         let info= JSON.parse(body);
         let train_name=info.train['name'];
         console.log(train_name);
-        res.json({
+        res.status(200).json({
             'fulfillmentText':"Name of the  train is: " + train_name
         });
+        res.end();
 
     });
+   }
+    
    
 
 
