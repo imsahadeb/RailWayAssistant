@@ -1,5 +1,6 @@
 const express =require('express');
 const axios = require('axios');
+const changeCase = require('change-case');
 const bodyParser = require('body-parser');
 const request_data= require('request');
 const app = express();
@@ -25,9 +26,11 @@ app.post('/api',(request,res)=>{
         let train_name=info.train['name'];
         let position = info['position'];
         
+        
         console.log(train_name);
         res.status(200).json({
-            'fulfillmentText':"The Train Number " + info.train['number'] + ',' + info.train['name'] + ' and the ' +position
+            'fulfillmentText':"The Train Number " + info.train['number'] + ','
+             + changeCase.titleCase(info.train['name'])  + ' and the '+changeCase.titleCase(position)
         });
         res.end();
 
