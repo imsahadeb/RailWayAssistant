@@ -20,7 +20,7 @@ app.post('/api',(request,res)=>{
     var find_position_by_no=request.body.queryResult.parameters['find_position_by_no'];
 
     if(find_position_by_no){
-        let find_train_url='https://api.railwayapi.com/v2/live/train/'+find_position_by_no+'/date/'+date+'/apikey/'+API_KEY2+'/'
+        let find_train_url='https://api.railwayapi.com/v2/live/train/'+find_position_by_no+'/date/20-05-2018/apikey/'+API_KEY2+'/'
         request_data(find_train_url,(req,response,body)=>{
         console.log(find_train_url);
         let info= JSON.parse(body);
