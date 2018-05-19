@@ -51,22 +51,7 @@ app.post('/api',(request,res)=>{
              +replace.all("Exp","Express").from(changeCase.titleCase(info.train['name'])).with("Express")
 
             
-                // "fulfillmentText": "This is a text response",
-                // "fulfillmentMessages": [
-                //   {
-                //     "card": {
-                //       "title": "card title",
-                //       "subtitle": "card text",
-                //       "imageUri": "https://assistant.google.com/static/images/molecule/Molecule-Formation-stop.png",
-                //       "buttons": [
-                //         {
-                //           "text": "button text",
-                //           "postback": "https://assistant.google.com/"
-                //         }
-                //       ]
-                //     }
-                //   }
-                // ]
+                
                 
 
         });
