@@ -48,7 +48,7 @@ app.post('/api',(request,res)=>{
         console.log(train_name);
         res.status(200).json({
             'fulfillmentText':"The name of the Train Number " +info.train['number']+ ' is '
-             +replace("Exp").from(changeCase.titleCase(info.train['name'])).with("Express")
+             +replace.all("Exp","Express").from(changeCase.titleCase(info.train['name'])).with("Express")
         });
         res.end();
 
