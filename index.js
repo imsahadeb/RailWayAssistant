@@ -47,26 +47,26 @@ app.post('/api',(request,res)=>{
         let train_name=info.train['name'];
         console.log(train_name);
         res.status(200).json({
-            // 'fulfillmentText':"The name of the Train Number " +info.train['number']+ ' is '
-            //  +replace.all("Exp","Express").from(changeCase.titleCase(info.train['name'])).with("Express")
+            'fulfillmentText':"The name of the Train Number " +info.train['number']+ ' is '
+             +replace.all("Exp","Express").from(changeCase.titleCase(info.train['name'])).with("Express")
 
             
-                "fulfillmentText": "This is a text response",
-                "fulfillmentMessages": [
-                  {
-                    "card": {
-                      "title": "card title",
-                      "subtitle": "card text",
-                      "imageUri": "https://assistant.google.com/static/images/molecule/Molecule-Formation-stop.png",
-                      "buttons": [
-                        {
-                          "text": "button text",
-                          "postback": "https://assistant.google.com/"
-                        }
-                      ]
-                    }
-                  }
-                ]
+                // "fulfillmentText": "This is a text response",
+                // "fulfillmentMessages": [
+                //   {
+                //     "card": {
+                //       "title": "card title",
+                //       "subtitle": "card text",
+                //       "imageUri": "https://assistant.google.com/static/images/molecule/Molecule-Formation-stop.png",
+                //       "buttons": [
+                //         {
+                //           "text": "button text",
+                //           "postback": "https://assistant.google.com/"
+                //         }
+                //       ]
+                //     }
+                //   }
+                // ]
                 
 
         });
