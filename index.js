@@ -4,6 +4,9 @@ const changeCase = require('change-case');
 const bodyParser = require('body-parser');
 const request_data= require('request');
 var replace = require("str-replace");
+
+ 
+
 const app = express();
 const API_KEY1= "q86si59pft";
 const API_KEY2 = "ye1rpmx0tk";
@@ -15,23 +18,21 @@ app.use(
   app.use(bodyParser.json());
 
 app.post('/api',(request,res)=>{
+    var parameters= request.body.queryResult.parameters;
+    var train_no = parameters['train_no'];
+    var find_position_by_no=parameters['find_position_by_no'];
+    var date=parameters['date'];
 
-    var train_no = request.body.queryResult.parameters['train_no'];
-    var find_position_by_no=request.body.queryResult.parameters['find_position_by_no'];
-
-    if(find_position_by_no){
-        let find_train_url='https://api.railwayapi.com/v2/live/train/'+find_position_by_no+'/date/20-05-2018/apikey/'+API_KEY2+'/'
+    if(find_position_by_no&&date){
+        let find_train_url='https://api.railwayapi.com/v2/live/train/'+find_position_by_no+'/date/'+date+'/apikey/'+API_KEY2+'/'
         request_data(find_train_url,(req,response,body)=>{
         console.log(find_train_url);
         let info= JSON.parse(body);
         let train_name=info.train['name'];
         let position = info['position'];
-        
-        
-        console.log(train_name);
         res.status(200).json({
             'fulfillmentText':"The Train Number " + info.train['number'] + ','
-            + replace("Exp").from(changeCase.titleCase(info.train['name'])).with("Express")
+            + changeCase.titleCase(info.train['name'])
             + ' and the '+changeCase.titleCase(position)
         });
         res.end();
@@ -44,22 +45,20 @@ app.post('/api',(request,res)=>{
     request_data(find_train_url,(req,response,body)=>{
         console.log(find_train_url);
         let info= JSON.parse(body);
-        let train_name=info.train['name'];
-        console.log(train_name);
+        let train_name=changeCase.titleCase(info.train['name']);  
         res.status(200).json({
             'fulfillmentText':"The name of the Train Number " +info.train['number']+ ' is '
-             +replace.all("Exp","Express").from(changeCase.titleCase(info.train['name'])).with("Express")
-
-            
-                
-                
-
+             +train_name
         });
         res.end();
 
     });
    }
     
+//    function butifyTrainName(trainName){
+//        trainName=changeCase.titleCase(trainName);
+//        if()
+//    }
    
 
 

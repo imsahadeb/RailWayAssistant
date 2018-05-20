@@ -17,6 +17,7 @@
     "express": "^4.16.3",
     "nodemon": "^1.17.4",
     "request": "^2.86.0",
-    "str-replace": "0.0.5"
+    "str-replace": "0.0.5",
+    "strip-outer": "^1.0.1"
   }
 }
