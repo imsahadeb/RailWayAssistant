@@ -42,7 +42,8 @@ app.post('/api',(request,res)=>{
              + 'Journey Class : ' +info.journey_class['name']
              + 'Journey Date : ' + info['availability'][0]['date']
              + 'Current Seat Status : ' +info['availability'][0]['status']
-         })
+         });
+         res.end();
     }
 
     if(find_position_by_no&&train_date){
