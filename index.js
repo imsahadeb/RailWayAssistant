@@ -4,6 +4,7 @@ const changeCase = require('change-case');
 const bodyParser = require('body-parser');
 const request_data= require('request');
 var replace = require("str-replace");
+const moment = require('moment');
 
  
 
@@ -22,9 +23,13 @@ app.post('/api',(request,res)=>{
     var train_no = parameters['train_no'];
     var find_position_by_no=parameters['find_position_by_no'];
     var date=parameters['date'];
+    //var moment_date=moment(date,'YYYY-MM-DD');
+    //var train_date = moment_date.format('DD-MM-YYYY');
+    var train_date=moment(date,'YYYY-MM-DD').format('DD-MM-YYYY');
+    console.log(train_date);
 
     if(find_position_by_no&&date){
-        let find_train_url='https://api.railwayapi.com/v2/live/train/'+find_position_by_no+'/date/'+date+'/apikey/'+API_KEY2+'/'
+        let find_train_url='https://api.railwayapi.com/v2/live/train/'+find_position_by_no+'/date/'+train_date+'/apikey/'+API_KEY2+'/'
         request_data(find_train_url,(req,response,body)=>{
         console.log(find_train_url);
         let info= JSON.parse(body);
