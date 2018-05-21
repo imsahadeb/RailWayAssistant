@@ -24,7 +24,7 @@ app.post('/api',(request,res)=>{
     var find_position_by_no=parameters['find_position_by_no'];
     var date=parameters['date'];
     var train_date=date;
-      //  train_date=moment(date,'YYYY-MM-DD').format('DD-MM-YYYY');
+        train_date=moment(date,'YYYY-MM-DD').format('DD-MM-YYYY');
       console.log(train_date);
     var source=parameters['source_stn'];
     var dest=parameters['dest_stn'];
