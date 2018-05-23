@@ -31,7 +31,7 @@ app.post('/api',(request,res)=>{
     
     if(intent='check available seat'){
          let url = 'https://api.railwayapi.com/v2/check-seat/train/'+train_no+'/source/'+source+'/dest/'
-         +dest+'/date/'+train_date+'/pref/'+seat_class+'/quota/gn/apikey/'+API_KEY2+'/';
+         +dest+'/date/'+train_date+'/pref/'+seat_class+'/quota/gn/apikey/'+API_KEY1+'/';
          console.log(url);
          request_data(url,(req,response,body)=>{
             let info=JSON.parse(body);
@@ -51,7 +51,7 @@ app.post('/api',(request,res)=>{
 
     if(intent='current position'){
         let find_train_url='https://api.railwayapi.com/v2/live/train/'+find_position_by_no+'/date/'
-        +train_date+'/apikey/'+API_KEY2+'/'
+        +train_date+'/apikey/'+API_KEY1+'/'
         request_data(find_train_url,(req,response,body)=>{
         
         let info= JSON.parse(body);
@@ -68,7 +68,7 @@ app.post('/api',(request,res)=>{
     }
 
    if(intent='find train name'){
-    let find_train_url='https://api.railwayapi.com/v2/name-number/train/'+train_no+'/apikey/'+API_KEY2+'/'
+    let find_train_url='https://api.railwayapi.com/v2/name-number/train/'+train_no+'/apikey/'+API_KEY1+'/'
     request_data(find_train_url,(req,response,body)=>{
         console.log(find_train_url);
         let info= JSON.parse(body);
