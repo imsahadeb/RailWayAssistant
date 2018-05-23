@@ -23,15 +23,13 @@ app.post('/api',(request,res)=>{
     var train_no = parameters['train_no'];
     var find_position_by_no=parameters['find_position_by_no'];
     var date=parameters['date'];
-    var train_date=date;
-        train_date=moment(date,'YYYY-MM-DD').format('DD-MM-YYYY');
-      console.log(train_date);
+    var train_date=moment(date,'YYYY-MM-DD').format('DD-MM-YYYY');
     var source=parameters['source_stn'];
     var dest=parameters['dest_stn'];
     var seat_class=parameters['seat_class']
- 
+    var intent = request.body.queryResult.intent.diplayName;
     
-    if(train_no&&train_date&&source&&dest&&seat_class){
+    if(intent='check available seat'){
          let url = 'https://api.railwayapi.com/v2/check-seat/train/'+train_no+'/source/'+source+'/dest/'
          +dest+'/date/'+train_date+'/pref/'+seat_class+'/quota/gn/apikey/'+API_KEY2+'/';
          console.log(url);
@@ -51,7 +49,7 @@ app.post('/api',(request,res)=>{
         
     }
 
-    if(find_position_by_no&&train_date){
+    if(intent='current position'){
         let find_train_url='https://api.railwayapi.com/v2/live/train/'+find_position_by_no+'/date/'
         +train_date+'/apikey/'+API_KEY2+'/'
         request_data(find_train_url,(req,response,body)=>{
@@ -69,20 +67,20 @@ app.post('/api',(request,res)=>{
     });
     }
 
-//    if(train_no){
-//     let find_train_url='https://api.railwayapi.com/v2/name-number/train/'+train_no+'/apikey/'+API_KEY2+'/'
-//     request_data(find_train_url,(req,response,body)=>{
-//         console.log(find_train_url);
-//         let info= JSON.parse(body);
-//         let train_name=changeCase.titleCase(info.train['name']);  
-//         res.status(200).json({
-//             'fulfillmentText':"The name of the Train Number " +info.train['number']+ ' is '
-//              +train_name
-//         });
-//         res.end();
+   if(intent='find train name'){
+    let find_train_url='https://api.railwayapi.com/v2/name-number/train/'+train_no+'/apikey/'+API_KEY2+'/'
+    request_data(find_train_url,(req,response,body)=>{
+        console.log(find_train_url);
+        let info= JSON.parse(body);
+        let train_name=changeCase.titleCase(info.train['name']);  
+        res.status(200).json({
+            'fulfillmentText':"The name of the Train Number " +info.train['number']+ ' is '
+             +train_name
+        });
+        res.end();
 
-//     });
-//    }
+    });
+   }
     
 
 
