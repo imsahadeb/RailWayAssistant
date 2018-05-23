@@ -51,7 +51,7 @@ app.post('/api',(request,res)=>{
                  + '  Journey Date : ' + info['availability'][0]['date']
                  + '  Current Seat Status : ' +info['availability'][0]['status']
             });
-            //res.end();
+            res.end();
          });
         
     }
@@ -63,17 +63,19 @@ app.post('/api',(request,res)=>{
 
         let find_train_url='https://api.railwayapi.com/v2/live/train/'+find_position_by_no+'/date/'
         +train_date+'/apikey/'+API_KEY1+'/'
+        console.log('URL: '+find_train_url);
         request_data(find_train_url,(req,response,body)=>{
-        
+        console.log('calling.....');
         let info= JSON.parse(body);
+        console.log(info);
         let train_name=info.train['name'];
         let position = info['position'];
-        res.status(200).json({
+        res.json({
             'fulfillmentText':"The Train Number " + info.train['number'] + ','
             + changeCase.titleCase(info.train['name'])
             + ' and the '+changeCase.titleCase(position)
         });
-        //res.end();
+        res.end();
 
     });
     }
@@ -89,15 +91,15 @@ app.post('/api',(request,res)=>{
             'fulfillmentText':"The name of the Train Number " +info.train['number']+ ' is '
              +train_name
         });
-        //res.end();
+        res.end();
 
     });
    }
-   else{
-    res.status(200).json({
-        'fulfillmentText': 'Problem with intent detection....'
-    })
-   }
+//    else{
+//     res.status(200).json({
+//         'fulfillmentText': 'Error'
+//     })
+//    }
     
 
 
