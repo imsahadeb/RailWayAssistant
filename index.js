@@ -20,16 +20,17 @@ app.use(
 
 app.post('/api',(request,res)=>{
     var parameters= request.body.queryResult.parameters;
-    var intent = request.body.queryResult.intent.diplayName;
+    var intent = request.body.queryResult.intent.displayName;
 
    console.log('Intent Triggered: '+intent);
-   if(intent='undefined'){
+   if(intent=='undefined'){
          res.status(200).json({
         'fulfillmentText': 'Problem with intent detection....'
     })
+    
    }
     
-    if(intent='check available seat'){
+    if(intent=='check available seat'){
         var train_no = parameters['train_no'];
         var date=parameters['date'];
         var train_date=moment(date,'YYYY-MM-DD').format('DD-MM-YYYY');
@@ -55,7 +56,7 @@ app.post('/api',(request,res)=>{
         
     }
 
-    if(intent='current position'){
+    if(intent=='current position'){
         var date=parameters['date'];
         var train_date=moment(date,'YYYY-MM-DD').format('DD-MM-YYYY');
         let find_position_by_no=parameters['find_position_by_no'];
@@ -77,7 +78,7 @@ app.post('/api',(request,res)=>{
     });
     }
 
-   if(intent='find train name'){
+   if(intent=='find train name'){
     var train_no = parameters['train_no'];
     let find_train_url='https://api.railwayapi.com/v2/name-number/train/'+train_no+'/apikey/'+API_KEY1+'/'
     request_data(find_train_url,(req,response,body)=>{
