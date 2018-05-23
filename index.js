@@ -22,7 +22,7 @@ app.post('/api',(request,res)=>{
     var parameters= request.body.queryResult.parameters;
     var intent = request.body.queryResult.intent.diplayName;
 
-   
+   console.log('Intent Triggered: '+intent);
     
     if(intent='check available seat'){
         var train_no = parameters['train_no'];
