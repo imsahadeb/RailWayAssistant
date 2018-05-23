@@ -43,13 +43,63 @@ app.post('/api',(request,res)=>{
          request_data(url,(req,response,body)=>{
             let info=JSON.parse(body);
             res.status(200).json({
-                'fulfillmentText':
-                'Train Name : '+info.train['name'] 
-                 + ' Source Station: ' +info.from_station['name']
-                 + '  Destination Satation : ' +info.to_station['name']
-                 + '  Journey Class : ' +info.journey_class['name']
-                 + '  Journey Date : ' + info['availability'][0]['date']
-                 + '  Current Seat Status : ' +info['availability'][0]['status']
+               
+                    "payload": {
+                      "google": {
+                        "expectUserResponse": true,
+                        "richResponse": {
+                          "items": [
+                            {
+                              "simpleResponse": {
+
+                                "textToSpeech": 'Train Name : '+info.train['name'] 
+                                 + ' Source Station: ' +info.from_station['name']
+                                 + '  Destination Satation : ' +info.to_station['name']
+                                 + '  Journey Class : ' +info.journey_class['name']
+                                 + '  Journey Date : ' + info['availability'][0]['date']
+                                 + '  Current Seat Status : ' +info['availability'][0]['status']
+
+                              }
+                            }
+                          ]
+                        },
+                        "systemIntent": {
+                          "intent": "actions.intent.OPTION",
+                          "data": {
+                            "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
+                            "listSelect": {
+                              "title": "Hello",
+                              "items": [
+                                {
+                                  "optionInfo": {
+                                    "key": "first title key"
+                                  },
+                                  "description": "first description",
+                                  "title": "first title",
+                                  "image": {
+                                    "url": "https://developers.google.com/actions/images/badges/XPM_BADGING_GoogleAssistant_VER.png",
+                                    "accessibilityText": "first alt"
+                                  },
+                               
+                                },
+                                {
+                                  "optionInfo": {
+                                    "key": "second"
+                                  },
+                                  "description": "second description",
+                                  "image": {
+                                    "url": "https://lh3.googleusercontent.com/Nu3a6F80WfixUqf_ec_vgXy_c0-0r4VLJRXjVFF_X_CIilEu8B9fT35qyTEj_PEsKw",
+                                    "accessibilityText": "second alt"
+                                  },
+                                  "title": "second title"
+                                }
+                              ]
+                            }
+                          }
+                        }
+                      }
+                    }
+                  
             });
             res.end();
          });
