@@ -29,6 +29,50 @@ app.post('/api',(request,res)=>{
     })
     
    }
+
+   if(intent='Default Welcome Intent'){
+       res.json({
+            "payload": {
+              "google": {
+                "expectUserResponse": true,
+                "richResponse": {
+                  "items": [
+                    {
+                      "simpleResponse": {
+                        "textToSpeech": "Here is the suggestions for you"
+                      }
+                    },
+                    {
+                      "simpleResponse": {
+                        "textToSpeech": "You can click on any suggestions for forther assistant."
+                      }
+                    }
+                  ],
+                  "suggestions": [
+                    {
+                      "title": "PNR Staus"
+                    },
+                    {
+                      "title": "Live Train Running Status"
+                    },
+                    {
+                      "title": "Current Seat Availibility"
+                    },
+                    {
+                      "title": "Train Schedule"
+                    },
+                    {
+                        "title":"Find Train Name"
+                    }
+
+                  ]
+                  
+                }
+              }
+            }
+          
+       })
+   }
     
     if(intent=='check available seat'){
         var train_no = parameters['train_no'];
