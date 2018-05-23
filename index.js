@@ -87,6 +87,11 @@ app.post('/api',(request,res)=>{
 
     });
    }
+   else{
+       res.status(200).json({
+           'fulfillmentText': 'Problem with intent detection....'
+       })
+   }
     
 
 
