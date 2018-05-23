@@ -24,31 +24,31 @@ app.post('/api',(request,res)=>{
 
    
     
-    // if(intent='check available seat'){
-    //     var train_no = parameters['train_no'];
-    //     var date=parameters['date'];
-    //     var train_date=moment(date,'YYYY-MM-DD').format('DD-MM-YYYY');
-    //     var source=parameters['source_stn'];
-    //     var dest=parameters['dest_stn'];
-    //     var seat_class=parameters['seat_class']
-    //      let url = 'https://api.railwayapi.com/v2/check-seat/train/'+train_no+'/source/'+source+'/dest/'
-    //      +dest+'/date/'+train_date+'/pref/'+seat_class+'/quota/gn/apikey/'+API_KEY1+'/';
-    //      console.log(url);
-    //      request_data(url,(req,response,body)=>{
-    //         let info=JSON.parse(body);
-    //         res.status(200).json({
-    //             'fulfillmentText':
-    //             'Train Name : '+info.train['name'] 
-    //              + ' Source Station: ' +info.from_station['name']
-    //              + '  Destination Satation : ' +info.to_station['name']
-    //              + '  Journey Class : ' +info.journey_class['name']
-    //              + '  Journey Date : ' + info['availability'][0]['date']
-    //              + '  Current Seat Status : ' +info['availability'][0]['status']
-    //         });
-    //         res.end();
-    //      });
+    if(intent='check available seat'){
+        var train_no = parameters['train_no'];
+        var date=parameters['date'];
+        var train_date=moment(date,'YYYY-MM-DD').format('DD-MM-YYYY');
+        var source=parameters['source_stn'];
+        var dest=parameters['dest_stn'];
+        var seat_class=parameters['seat_class']
+         let url = 'https://api.railwayapi.com/v2/check-seat/train/'+train_no+'/source/'+source+'/dest/'
+         +dest+'/date/'+train_date+'/pref/'+seat_class+'/quota/gn/apikey/'+API_KEY1+'/';
+         console.log(url);
+         request_data(url,(req,response,body)=>{
+            let info=JSON.parse(body);
+            res.status(200).json({
+                'fulfillmentText':
+                'Train Name : '+info.train['name'] 
+                 + ' Source Station: ' +info.from_station['name']
+                 + '  Destination Satation : ' +info.to_station['name']
+                 + '  Journey Class : ' +info.journey_class['name']
+                 + '  Journey Date : ' + info['availability'][0]['date']
+                 + '  Current Seat Status : ' +info['availability'][0]['status']
+            });
+            //res.end();
+         });
         
-    // }
+    }
 
     if(intent='current position'){
         var date=parameters['date'];
@@ -67,7 +67,7 @@ app.post('/api',(request,res)=>{
             + changeCase.titleCase(info.train['name'])
             + ' and the '+changeCase.titleCase(position)
         });
-        res.end();
+        //res.end();
 
     });
     }
@@ -83,7 +83,7 @@ app.post('/api',(request,res)=>{
             'fulfillmentText':"The name of the Train Number " +info.train['number']+ ' is '
              +train_name
         });
-        res.end();
+        //res.end();
 
     });
    }
