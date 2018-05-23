@@ -23,6 +23,11 @@ app.post('/api',(request,res)=>{
     var intent = request.body.queryResult.intent.diplayName;
 
    console.log('Intent Triggered: '+intent);
+   if(intent='undefined'){
+         res.status(200).json({
+        'fulfillmentText': 'Problem with intent detection....'
+    })
+   }
     
     if(intent='check available seat'){
         var train_no = parameters['train_no'];
@@ -88,9 +93,9 @@ app.post('/api',(request,res)=>{
     });
    }
    else{
-       res.status(200).json({
-           'fulfillmentText': 'Problem with intent detection....'
-       })
+    res.status(200).json({
+        'fulfillmentText': 'Problem with intent detection....'
+    })
    }
     
 
