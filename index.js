@@ -30,7 +30,7 @@ app.post('/api',(request,res)=>{
     
    }
 
-   if(intent='Default Welcome Intent'){
+   if(intent=='Default Welcome Intent'){
        res.json({
             "payload": {
               "google": {
