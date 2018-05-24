@@ -97,12 +97,12 @@ app.post('/api',(request,res)=>{
    }
     
     if(intent=='check available seat'){
-        var train_no = parameters['train_no'];
+        var train_no = parameters['train_no'].trim();
         var date=parameters['date'];
-        var train_date=moment(date,'YYYY-MM-DD').format('DD-MM-YYYY');
-        var source=parameters['source_stn'];
-        var dest=parameters['dest_stn'];
-        var seat_class=parameters['seat_class']
+        var train_date=moment(date,'YYYY-MM-DD').format('DD-MM-YYYY').trim();
+        var source=parameters['source_stn'].trim();
+        var dest=parameters['dest_stn'].trim();
+        var seat_class=parameters['seat_class'].trim();
          let url = 'https://api.railwayapi.com/v2/check-seat/train/'+train_no+'/source/'+source+'/dest/'
          +dest+'/date/'+train_date+'/pref/'+seat_class+'/quota/gn/apikey/'+API_KEY1+'/';
          console.log(url);
@@ -174,9 +174,11 @@ app.post('/api',(request,res)=>{
 
     if(intent=='current position'){
         var date=parameters['date'];
-        var train_date=moment(date,'YYYY-MM-DD').format('DD-MM-YYYY');
-        let find_position_by_no=parameters['find_position_by_no'];
+        var train_date=moment(date,'YYYY-MM-DD').format('DD-MM-YYYY').trim();
+        let find_position_by_no=parameters['find_position_by_no'].trim();
 
+       // console.log(find_position_by_no);
+      //  console.log(find_position_by_no.trim());
         let find_train_url='https://api.railwayapi.com/v2/live/train/'+find_position_by_no+'/date/'
         +train_date+'/apikey/'+API_KEY1+'/'
         console.log('URL: '+find_train_url);
@@ -197,7 +199,7 @@ app.post('/api',(request,res)=>{
     }
 
    if(intent=='find train name'){
-    var train_no = parameters['train_no'];
+    var train_no = parameters['train_no'].trim();
     let find_train_url='https://api.railwayapi.com/v2/name-number/train/'+train_no+'/apikey/'+API_KEY1+'/'
     request_data(find_train_url,(req,response,body)=>{
         console.log(find_train_url);
