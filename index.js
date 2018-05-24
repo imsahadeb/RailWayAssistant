@@ -137,7 +137,7 @@ app.post('/api',(request,res)=>{
             res.status(200).json({
                
                     "payload": {
-                      "facebooke": {
+                      "facebook": {
                         "attachment": {
                           "type": "template",
                           "payload": {
