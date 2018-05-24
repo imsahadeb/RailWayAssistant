@@ -141,30 +141,62 @@ app.post('/api',(request,res)=>{
                         "attachment": {
                           "type": "template",
                           "payload": {
-                            "template_type": "airline_checkin",
-                            "intro_message": "Check-in is available now.",
-                            "locale": "en_US",        
-                            "pnr_number": "ABCDEF",
-                            "checkin_url": "https:\/\/www.airline.com\/check-in",  
-                            "flight_info": [
+                            "template_type": "airline_boardingpass",
+                            "intro_message": "Current Seat availibility",
+                            "locale": "en_US",
+                            "boarding_pass": [
                               {
-                                "flight_number": "f001",
-                                "departure_airport": {
-                                  "airport_code": "SFO",
-                                  "city": "San Francisco",
-                                  "terminal": "T4",
-                                  "gate": "G8"
-                                },
-                                "arrival_airport": {
-                                  "airport_code": "SEA",
-                                  "city": "Seattle",
-                                  "terminal": "T4",
-                                  "gate": "G8"
-                                },
-                                "flight_schedule": {
-                                  "boarding_time": "2016-01-05T15:05",
-                                  "departure_time": "2016-01-05T15:45",
-                                  "arrival_time": "2016-01-05T17:30"
+                                "passenger_name": "Sahadeb Barman",
+                                "pnr_number": "CG4X7U",
+                                "seat": "74J",            
+                                "logo_image_url": "https:\/\/www.example.com\/en\/logo.png",
+                                "header_image_url": "https:\/\/www.example.com\/en\/fb\/header.png",
+                                "qr_code": "M1SMITH\/NICOLAS  CG4X7U nawouehgawgnapwi3jfa0wfh",
+                                "above_bar_code_image_url": "https:\/\/www.example.com\/en\/PLAT.png",
+                                "auxiliary_fields": [
+                                  {
+                                    "label": "Terminal",
+                                    "value": "T1"
+                                  },
+                                  {
+                                    "label": "Departure",
+                                    "value": "30OCT 19:05"
+                                  }
+                                ],
+                                "secondary_fields": [
+                                  {
+                                    "label": "Boarding",
+                                    "value": "18:30"
+                                  },
+                                  {
+                                    "label": "Gate",
+                                    "value": "D57"
+                                  },
+                                  {
+                                    "label": "Seat",
+                                    "value": "74J"
+                                  },
+                                  {
+                                    "label": "Sec.Nr.",
+                                    "value": "003"
+                                  }
+                                ],
+                                "flight_info": {
+                                  "flight_number": "KL0642",
+                                  "departure_airport": {
+                                    "airport_code": "JFK",
+                                    "city": "New York",
+                                    "terminal": "T1",
+                                    "gate": "D57"
+                                  },
+                                  "arrival_airport": {
+                                    "airport_code": "AMS",
+                                    "city": "Amsterdam"
+                                  },
+                                  "flight_schedule": {
+                                    "departure_time": "2016-01-02T19:05",
+                                    "arrival_time": "2016-01-05T17:30"
+                                  }
                                 }
                               }
                             ]
