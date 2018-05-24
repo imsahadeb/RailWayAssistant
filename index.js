@@ -146,7 +146,7 @@ app.post('/api',(request,res)=>{
                             "locale": "en_US",
                             "boarding_pass": [
                               {
-                                "passenger_name": "Sahadeb Barman",
+                                "passenger_name": "SMITH\/NICOLAS",
                                 "pnr_number": "CG4X7U",
                                 "seat": "74J",            
                                 "logo_image_url": "https:\/\/www.example.com\/en\/logo.png",
