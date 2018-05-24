@@ -34,18 +34,6 @@ app.post('/api',(request,res)=>{
        res.json({
             "payload": {
               "facebook" : {
-                "attachment" : {
-                    "type" : "template",
-                    "payload" : {
-                        "template_type" : "generic",
-                        "elements" : [ 
-                            {
-                                "title" : "Sahadeb",
-                                "image_url" : "https://i2.wp.com/mpplindia.com/wp-content/uploads/2015/12/indian-railway-logo.png?resize=300%2C300"
-                            }
-                        ]
-                    }
-                },
                   "text": "Pick a color:",
                   "quick_replies": [
                      {
