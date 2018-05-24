@@ -34,17 +34,27 @@ app.post('/api',(request,res)=>{
        res.json({
             "payload": {
               "facebook" : {
-                  "text": "Pick a color:",
+                  "text": "Select any from below to get started",
                   "quick_replies": [
                      {
                         "content_type": "text",
-                        "title": "Red",
-                        "payload": "red"
+                        "title": "PNR Status",
+                        "payload": "PNR Status"
                      },
                      {
                         "content_type": "text",
-                        "title": "Green",
-                        "payload": "green"
+                        "title": "Live Train Status",
+                        "payload": "Train Running Status"
+                    },
+                    {
+                        "content_type": "text",
+                        "title": "Train Schedule",
+                        "payload": "train schedule"
+                     },
+                     {
+                        "content_type": "text",
+                        "title": "Seat Status",
+                        "payload": "Current Seat Status"
                      }
                   ]
                
