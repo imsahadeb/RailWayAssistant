@@ -225,7 +225,9 @@ app.post('/api',(request,res)=>{
     }
 
    if(intent=='find train name'){
+     console.log(parameters['train_no']);
     var train_no = parameters['train_no'].trim();
+    console.log(train_no);
     let find_train_url='https://api.railwayapi.com/v2/name-number/train/'+train_no+'/apikey/'+API_KEY1+'/'
     request_data(find_train_url,(req,response,body)=>{
         console.log(find_train_url);
