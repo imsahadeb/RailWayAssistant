@@ -10,7 +10,8 @@ module.exports = {
     FIND_TRAIN_NAME_INTENT : 'find train name',
     //FIND_TRAIN_CODE_INTENT:'find train code',
     FIND_TRAIN_BTWN_STN_INTENT:'find train btwn two station',
-    TRAIN_PASSING_THROUGH_STN_INTENT :'train pass throgh this station',
+    TRAIN_PASSING_THROUGH_STN_INTENT :'train pass through this station',
+                                      
     FIND_STN_CODE_INTENT:'find station code',
     FIND_TRAIN_NUMBER_INTENT:'find train number',
     GET_TRAIN_SCHEDULE_INTENT:'get train schedule',
