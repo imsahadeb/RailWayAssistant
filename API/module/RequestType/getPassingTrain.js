@@ -33,14 +33,14 @@ module.exports.getPassingTrain = function(request,passToHandler){
               if(currently=='RIGHT TIME'){
                   currently = 'and it on Right Time';
               }
-              result+=' Train Number: ' +trainNumbr+', '+ tarinName +'   '
-              result+=' Actual Arival Time ' +actArrTime+', ' + currently +'  ';
+              result+=' Train Number: ' +trainNumbr+', '+ tarinName +'\\n'
+              result+=' Actual Arival Time ' +actArrTime+', ' + currently +' \\n\\n ';
               //console.log(result);
           }
           
           outPutToEndUser={
               'fulfillmentText': result,
-              'fulfillmentText': 'hello'  
+          
             
             }
      //     console.log(outPutToEndUser);         
