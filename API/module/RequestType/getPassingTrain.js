@@ -19,7 +19,7 @@ module.exports.getPassingTrain = function(request,passToHandler){
         let trainList = getJsonData.trains;
         //  console.log(getJsonData);
           let outPutToEndUser= '';
-  
+          let result='';
           for(i=0;i<trainList.length;i++){
               tarinName= trainList[i].name;
               trainNumbr= trainList[i].number;
@@ -31,12 +31,16 @@ module.exports.getPassingTrain = function(request,passToHandler){
               if(currently=='RIGHT TIME'){
                   currently = 'and it on Right Time';
               }
-              result="Train Number: " +trainNumbr+', '+ tarinName +'\n'
-              result+="Actual Arival Time " +actArrTime+', ' + currently +'\n\n';
-              console.log(result);
+              result+='Train Number: ' +trainNumbr+', '+ tarinName +'\n'
+              result+='Actual Arival Time ' +actArrTime+', ' + currently +'\n\n';
+              //console.log(result);
           }
           
-
+          outPutToEndUser={
+              'fulfillmentText': result          }
+          console.log(outPutToEndUser);         
+          passToHandler(outPutToEndUser);
+          
 });
 
 }
