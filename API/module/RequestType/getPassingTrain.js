@@ -38,7 +38,7 @@ module.exports.getPassingTrain = function(request,passToHandler){
           
           outPutToEndUser={
               'fulfillmentText': result          }
-          console.log(outPutToEndUser);         
+     //     console.log(outPutToEndUser);         
           passToHandler(outPutToEndUser);
           
 });
