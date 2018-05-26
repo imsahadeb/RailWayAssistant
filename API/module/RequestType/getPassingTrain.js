@@ -8,6 +8,7 @@ const getDataFromConstantFile = require('../../../constraints/constant');
 module.exports.getPassingTrain = function(request,passToHandler){
     let parameters =request.body.queryResult.parameters;
     let STATION_CODE = parameters.STATION_CODE;
+    console.log("station: "+ STATION_CODE);
     let TIME_WINDOW = parameters.TIME_WINDOW;
     let URL = getDataFromConstantFile.API_HOST + '/v2/arrivals/'
     +'station/'+ STATION_CODE + '/hours/'+TIME_WINDOW+'/apikey/'
