@@ -7,13 +7,13 @@ module.exports.getListofTrainBetweenStation = function(request,passToHandler){
     // https://api.railwayapi.com/v2/between/source/
     // <stn code>/dest/<stn code>/date/<dd-mm-yyyy>/apikey/<apikey>/
     let parameters =request.body.queryResult.parameters;
-    let source_stn = parameters.SOURCE_STN;
-    let dest_stn = parameters.DEST_STN;
-    let date = parameters.DATE;
-    let url = getDataFromConstantFile.API_HOST + '/v2/between/source/' +source_stn + '/dest/'
-    + dest_stn + '/date/' +date + '/apikey/' +getDataFromConstantFile.API_KEY_1 + '/';
+    let SOURCE_STN = parameters.SOURCE_STN;
+    let DEST_STN = parameters.DEST_STN;
+    let DATE = parameters.DATE;
+    let URL = getDataFromConstantFile.API_HOST + '/v2/between/source/' +SOURCE_STN + '/dest/'
+    + DEST_STN + '/date/' + DATE + '/apikey/' +getDataFromConstantFile.API_KEY_1 + '/';
 
-    fromRailWayAPI.callTheRailwayApi(url,function(getResponseFromAPI){
+    fromRailWayAPI.callTheRailwayApi(URL,function(getResponseFromAPI){
 
         let getJsonData = JSON.parse(getResponseFromAPI);
         let trainList = getJsonData.trains;
