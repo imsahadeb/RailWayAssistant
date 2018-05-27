@@ -60,6 +60,9 @@ function (request,passtoHandler){
     if(intent==getDataFromConstantFile.GET_FARE_DETAILS_INTENT){
         fromFareDetails.getFareDetails(request,passtoHandler);
     }
+    if(intent==getDataFromConstantFile.FIND_TRAIN_NAME_INTENT){
+        fromTrainName.getTrainName(request,passtoHandler);
+    }
 }
 
 
