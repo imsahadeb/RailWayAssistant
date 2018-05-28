@@ -112,6 +112,70 @@ function sendDefaultResponse(request,passtoHandler){
           }
         }
       }
-      passtoHandler(results);
+
+
+      var ob={
+        "payload": {
+          "google": {
+            "expectUserResponse": true,
+            "richResponse": {
+              "items": [
+                {
+                  "simpleResponse": {
+                    "textToSpeech": "Simple Response"
+                  }
+                },
+                {
+                  "tableCard": {
+                    "rows": [
+                      {
+                        "cells": [
+                          {
+                            "text": "row 1 item 1"
+                          },
+                          {
+                            "text": "row 1 item 2"
+                          },
+                          {
+                            "text": "row 1 item 3"
+                          }
+                        ],
+                        "dividerAfter": true
+                      },
+                      {
+                        "cells": [
+                          {
+                            "text": "row 2 item 1"
+                          },
+                          {
+                            "text": "row 2 item 2"
+                          },
+                          {
+                            "text": "row 2 item 3"
+                          }
+                        ],
+                        "dividerAfter": true
+                      }
+                    ],
+                    "columnProperties": [
+                      {
+                        "header": "header 1"
+                      },
+                      {
+                        "header": "header 2"
+                      },
+                      {
+                        "header": "header 3"
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "userStorage": "{\"data\":{}}"
+          }
+        }
+      }
+      passtoHandler(ob);
     }
       
