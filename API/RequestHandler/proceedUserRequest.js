@@ -71,11 +71,19 @@ function sendDefaultResponse(request,passtoHandler){
     fromRailWayAPI.callTheRailwayApi(URL,(getResPonseFromApi)=>{
         getJsonData = JSON.parse(getResPonseFromApi);
         total = getJsonData.total;
-        results ='';
+        outPut ='';
         for(i=0;i<total;i++){
-            
-        }
-    })
+            trainName=getJsonData.trains[i].name;
+            trainNumber= getJsonData.trains[i].number;
+            arrivalTime=getJsonData.trains[i].scharr;
+            deptTime = getJsonData.trains[i].schdep;
+            currentStatus = getJsonData.trains[i].delayarr;
+            outPut +="'cells':[{'text':"+trainName+"("+trainNumber+")},"
+                      +"{ 'text':"+arrivalTime+"},"
+                      +"{ 'text': "+deptTime+"},"
+                      +"{ 'text': "+currentStatus+"}],'dividerAfter':true},"
+             }
+   
 
     var results={
         "payload": {
@@ -97,60 +105,24 @@ function sendDefaultResponse(request,passtoHandler){
                       "accessibilityText": "Actions on Google"
                     },
                     "rows": [
-                      {
-                        "cells": [
-                          {
-                            "text": "row 1 item 1"
-                          },
-                          {
-                            "text": "row 1 item 2"
-                          },
-                          {
-                            "text": "row 1 item 3"
-                          }
-                        ],
-                        "dividerAfter": false
-                      },
-                      {
-                        "cells": [
-                          {
-                            "text": "row 2 item 1"
-                          },
-                          {
-                            "text": "row 2 item 2"
-                          },
-                          {
-                            "text": "row 2 item 3"
-                          }
-                        ],
-                        "dividerAfter": true
-                      },
-                      {
-                        "cells": [
-                          {
-                            "text": "row 2 item 1"
-                          },
-                          {
-                            "text": "row 2 item 2"
-                          },
-                          {
-                            "text": "row 2 item 3"
-                          }
-                        ]
-                      }
+                        outPut
                     ],
                     "columnProperties": [
                       {
-                        "header": "header 1",
-                        "horizontalAlignment": "CENTER"
-                      },
-                      {
-                        "header": "header 2",
+                        "header": "Train Name(No)",
                         "horizontalAlignment": "LEADING"
                       },
                       {
-                        "header": "header 3",
-                        "horizontalAlignment": "TRAILING"
+                        "header": "Arr Time",
+                        "horizontalAlignment": "CENTER"
+                      },
+                      {
+                        "header": "Dep. Time",
+                        "horizontalAlignment": "CENTER"
+                      },
+                      {
+                          "header":"Current State",
+                          "horizontalAlignment":"TRAILING"
                       }
                     ],
                     "buttons": [
@@ -169,5 +141,6 @@ function sendDefaultResponse(request,passtoHandler){
           }
         }
       }
+    })
       passtoHandler(results);
 }
