@@ -180,6 +180,7 @@ function sendDefaultResponse(request,passtoHandler){
       var tableCard={
         "payload": {
             "facebook": {
+                "attachment":{
                 "template_type":"generic",
                 "elements":[
                    {
@@ -202,6 +203,7 @@ function sendDefaultResponse(request,passtoHandler){
                   },
                   
                 ]
+             }
               },
           "google": {
             "expectUserResponse": true,
