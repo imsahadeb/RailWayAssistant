@@ -86,11 +86,11 @@ function sendDefaultResponse(request,passtoHandler){
               "data": {
                 "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
                 "listSelect": {
-                  "title": "Hello",
+                  "title": "Train List",
                   "items": [
                     {
-                      "title": "first title",
-                      "description": "first description",  
+                      "title": "Train No: 13148, Uttarbango Express",
+                      "description": "Actual Arrival Time: 3:15 pm, is late by 30 min",  
                       "optionInfo": {
                         "key": "first title key"
                       }
@@ -101,9 +101,9 @@ function sendDefaultResponse(request,passtoHandler){
                       "optionInfo": {
                         "key": "second"
                       },
-                      "description": "second description",
+                      "description": "Actual Arrival Time: 5:15pm, is on Right Time",
                       
-                      "title": "second title"
+                      "title": "Train No: 12345, Saraighat Express"
                     }
                   ]
                 }
