@@ -81,20 +81,21 @@ function sendDefaultResponse(request,passtoHandler){
                 }
               ]
             },
-            // "systemIntent": {
-            //   "intent": "actions.intent.OPTION",
-            //   "data": {
-            //     "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
+            "systemIntent": {
+              "intent": "actions.intent.OPTION",
+              "data": {
+                "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
                 "listSelect": {
                   "title": "Hello",
                   "items": [
                     {
+                      "title": "first title",
+                      "description": "first description",  
                       "optionInfo": {
                         "key": "first title key"
-                      },
-                      "description": "first description",
+                      }
+                      
                      
-                      "title": "first title"
                     },
                     {
                       "optionInfo": {
@@ -106,8 +107,8 @@ function sendDefaultResponse(request,passtoHandler){
                     }
                   ]
                 }
-            //  }
-           // }
+              }
+            }
           }
         }
       }
