@@ -78,10 +78,10 @@ function sendDefaultResponse(request,passtoHandler){
             arrivalTime=getJsonData.trains[i].scharr;
             deptTime = getJsonData.trains[i].schdep;
             currentStatus = getJsonData.trains[i].delayarr;
-            outPut +="'cells':[{'text':"+trainName+"("+trainNumber+")},"
-                      +"{ 'text':"+arrivalTime+"},"
-                      +"{ 'text': "+deptTime+"},"
-                      +"{ 'text': "+currentStatus+"}],'dividerAfter':true},"
+            outPut +="'cells':[{'text':'" +trainName+"("+trainNumber+")'},"
+                      +"{ 'text':'"+arrivalTime+"'},"
+                      +"{ 'text': '"+deptTime+"'},"
+                      +"{ 'text': '"+currentStatus+"'}],'dividerAfter':true},"
              }
    
 
