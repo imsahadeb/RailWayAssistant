@@ -91,7 +91,7 @@ function sendDefaultResponse(request,passtoHandler){
                              'simpleResponse':{
                                  'textToSpeech':'hello how are you?'
                              }
-                         }
+                         },
                          {
                              "basicCard": {
                                  "title": "Math & prime numbers",
