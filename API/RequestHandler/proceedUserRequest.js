@@ -122,7 +122,7 @@ function sendDefaultResponse(request,passtoHandler){
               "items": [
                 {
                   "simpleResponse": {
-                    "textToSpeech": "Simple Response"
+                    "textToSpeech": "Train List"
                   }
                 },
                 {
@@ -176,6 +176,99 @@ function sendDefaultResponse(request,passtoHandler){
           }
         }
       }
-      passtoHandler(ob);
+
+      var tableCard={
+        "payload": {
+          "google": {
+            "expectUserResponse": true,
+            "richResponse": {
+              "items": [
+                {
+                  "simpleResponse": {
+                    "textToSpeech": "Simple Response"
+                  }
+                },
+                {
+                  "tableCard": {
+                    "title": "Table Title",
+                    "subtitle": "Table Subtitle",
+                    "image": {
+                      "url": "https://avatars0.githubusercontent.com/u/23533486",
+                      "accessibilityText": "Actions on Google"
+                    },
+                    "rows": [
+                      {
+                        "cells": [
+                          {
+                            "text": "row 1 item 1"
+                          },
+                          {
+                            "text": "row 1 item 2"
+                          },
+                          {
+                            "text": "row 1 item 3"
+                          }
+                        ],
+                        "dividerAfter": false
+                      },
+                      {
+                        "cells": [
+                          {
+                            "text": "row 2 item 1"
+                          },
+                          {
+                            "text": "row 2 item 2"
+                          },
+                          {
+                            "text": "row 2 item 3"
+                          }
+                        ],
+                        "dividerAfter": true
+                      },
+                      {
+                        "cells": [
+                          {
+                            "text": "row 2 item 1"
+                          },
+                          {
+                            "text": "row 2 item 2"
+                          },
+                          {
+                            "text": "row 2 item 3"
+                          }
+                        ]
+                      }
+                    ],
+                    "columnProperties": [
+                      {
+                        "header": "header 1",
+                        "horizontalAlignment": "CENTER"
+                      },
+                      {
+                        "header": "header 2",
+                        "horizontalAlignment": "LEADING"
+                      },
+                      {
+                        "header": "header 3",
+                        "horizontalAlignment": "TRAILING"
+                      }
+                    ],
+                    "buttons": [
+                      {
+                        "title": "Button Title",
+                        "openUrlAction": {
+                          "url": "https://github.com/actions-on-google"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            "userStorage": "{\"data\":{}}"
+          }
+        }
+      }
+      passtoHandler(tableCard);
     }
       
