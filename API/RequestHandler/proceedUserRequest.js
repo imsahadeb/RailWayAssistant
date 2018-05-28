@@ -179,18 +179,42 @@ function sendDefaultResponse(request,passtoHandler){
 
       var tableCard={
         "payload": {
+            "facebook": {
+                "template_type":"generic",
+                "elements":[
+                   {
+                    "title":"<TITLE_TEXT>",
+                    "image_url":"<IMAGE_URL_TO_DISPLAY>",
+                    "subtitle":"<SUBTITLE_TEXT>",
+                    "default_action": {
+                      "type": "web_url",
+                      "url": "<DEFAULT_URL_TO_OPEN>",
+                      "messenger_extensions": false,
+                      "webview_height_ratio": "<COMPACT | TALL | FULL>"
+                    },
+                    "buttons":[
+                        {
+                        "type":"web_url",
+                    "url":"https://petersfancybrownhats.com",
+                    "title":"View Website"
+                        }
+                ]      
+                  },
+                  
+                ]
+              },
           "google": {
             "expectUserResponse": true,
             "richResponse": {
               "items": [
                 {
                   "simpleResponse": {
-                    "textToSpeech": "Simple Response"
+                    "textToSpeech": "Here is the Train List"
                   }
                 },
                 {
                   "tableCard": {
-                    "title": "Table Title",
+                    "title": "Train List",
                     "subtitle": "Table Subtitle",
                     "image": {
                       "url": "https://avatars0.githubusercontent.com/u/23533486",
