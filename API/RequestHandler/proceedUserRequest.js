@@ -69,67 +69,54 @@ function (request,passtoHandler){
 function sendDefaultResponse(request,passtoHandler){
 
     var results={
-          "payload": {
-             "google": {
-                     "expectUserResponse": true,
-                     "richResponse": {
-                       "items": [
-                       
-                          {
-                            "simpleResponse": {
-                              'textToSpeech': 'Here is the suggestions for you',
-                              'diaplayText': 'hello hi this is smaple text, hindn dhkjxdbkbkbb  dhbhbjdb jbcjbdj'
-                            }
-                          },
-                          {
-                            "optionInfo": {
-                                "key": "live status",
-                                "synonyms": [
-                                    'live sataus'
-                                ]
-                            },
-                            "title": "Train No:13148, Uttarbango Exp",
-                            "description": "Actual Arrival Time: 3:20 pm, is running late by 2 hours",
-                        }, 
-                        {
-                            "optionInfo": {
-                                "key": "live statu",
-                                "synonyms": [
-                                    'live satau'
-                                ]
-                            },
-                            "title": "Train No:13148, Uttarbango Exp",
-                            "description": "Actual Arrival Time: 3:20 pm, is running late by 2 hours",
-                        },
-                        ],
-                       "suggestions": [
-                         {
-                           "title": "PNR Staus"
-                         },
-                         {
-                           "title": "Live Train Running Status"
-                         },
-                         {
-                           "title": "Current Seat Availibility"
-                         },
-                         {
-                           "title": "Train Schedule"
-                         },
-                         {
-                             "title":"Find Train Name"
-                         }
-        
-                       ]
-                       
-                     }
-                   }
-                 }
+        "payload": {
+          "google": {
+            "expectUserResponse": true,
+            "richResponse": {
+              "items": [
+                {
+                  "simpleResponse": {
+                    "textToSpeech": "Choose a item"
+                  }
+                }
+              ]
+            },
+            "systemIntent": {
+              "intent": "actions.intent.OPTION",
+              "data": {
+                "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
+                "listSelect": {
+                  "title": "Hello",
+                  "items": [
+                    {
+                      "optionInfo": {
+                        "key": "first title key"
+                      },
+                      "description": "first description",
+                      "image": {
+                        "url": "https://developers.google.com/actions/images/badges/XPM_BADGING_GoogleAssistant_VER.png",
+                        "accessibilityText": "first alt"
+                      },
+                      "title": "first title"
+                    },
+                    {
+                      "optionInfo": {
+                        "key": "second"
+                      },
+                      "description": "second description",
+                      "image": {
+                        "url": "https://lh3.googleusercontent.com/Nu3a6F80WfixUqf_ec_vgXy_c0-0r4VLJRXjVFF_X_CIilEu8B9fT35qyTEj_PEsKw",
+                        "accessibilityText": "second alt"
+                      },
+                      "title": "second title"
+                    }
+                  ]
+                }
+              }
+            }
+          }
         }
-
-        passtoHandler(results);
-         
-
-}
-
-
-
+      }
+      passtoHandler(ob);
+    }
+      
