@@ -179,32 +179,32 @@ function sendDefaultResponse(request,passtoHandler){
 
       var tableCard={
         "payload": {
-            "facebook": {
-                "attachment":{
-                "template_type":"generic",
-                "elements":[
-                   {
-                    "title":"<TITLE_TEXT>",
-                    "image_url":"<IMAGE_URL_TO_DISPLAY>",
-                    "subtitle":"<SUBTITLE_TEXT>",
-                    "default_action": {
-                      "type": "web_url",
-                      "url": "<DEFAULT_URL_TO_OPEN>",
-                      "messenger_extensions": false,
-                      "webview_height_ratio": "<COMPACT | TALL | FULL>"
-                    },
-                    "buttons":[
-                        {
-                        "type":"web_url",
-                    "url":"https://petersfancybrownhats.com",
-                    "title":"View Website"
-                        }
-                ]      
-                  },
-                  
-                ]
-             }
-              },
+            "facebook" : {
+                        "text": "Select any from below to get started",
+                            "quick_replies": [
+                                  {
+                                     "content_type": "text",
+                                     "title": "PNR Status",
+                                     "payload": "PNR Status"
+                                  },
+                                  {
+                                     "content_type": "text",
+                                     "title": "Live Train Status",
+                                     "payload": "Train Running Status"
+                                 },
+                                 {
+                                     "content_type": "text",
+                                     "title": "Train Schedule",
+                                     "payload": "train schedule"
+                                  },
+                                  {
+                                     "content_type": "text",
+                                     "title": "Seat Status",
+                                     "payload": "Current Seat Status"
+                                  }
+                               ]
+                            
+                         },
           "google": {
             "expectUserResponse": true,
             "richResponse": {
