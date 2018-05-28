@@ -93,10 +93,7 @@ function sendDefaultResponse(request,passtoHandler){
                         "key": "first title key"
                       },
                       "description": "first description",
-                      "image": {
-                        "url": "https://developers.google.com/actions/images/badges/XPM_BADGING_GoogleAssistant_VER.png",
-                        "accessibilityText": "first alt"
-                      },
+                     
                       "title": "first title"
                     },
                     {
@@ -104,10 +101,7 @@ function sendDefaultResponse(request,passtoHandler){
                         "key": "second"
                       },
                       "description": "second description",
-                      "image": {
-                        "url": "https://lh3.googleusercontent.com/Nu3a6F80WfixUqf_ec_vgXy_c0-0r4VLJRXjVFF_X_CIilEu8B9fT35qyTEj_PEsKw",
-                        "accessibilityText": "second alt"
-                      },
+                      
                       "title": "second title"
                     }
                   ]
