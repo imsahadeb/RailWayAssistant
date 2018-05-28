@@ -74,12 +74,24 @@ function sendDefaultResponse(request,passtoHandler){
                      "expectUserResponse": true,
                      "richResponse": {
                        "items": [
-                         {
-                           "simpleResponse": {
-                             'textToSpeech': 'Here is the suggestions for you',
-                             'diaplayText': 'hello hi this is smaple text, hindn dhkjxdbkbkbb  dhbhbjdb jbcjbdj'
-                           }
-                         },
+                        {
+                            "simpleResponse": {
+                              'textToSpeech': 'Here is the suggestions for you',
+                              'diaplayText': 'hello hi this is smaple text, hindn dhkjxdbkbkbb  dhbhbjdb jbcjbdj'
+                            }
+                          },
+                          {
+                            "simpleResponse": {
+                              'textToSpeech': 'Here is the suggestions for you',
+                              'diaplayText': 'hello hi this is smaple text, hindn dhkjxdbkbkbb  dhbhbjdb jbcjbdj'
+                            }
+                          },
+                          {
+                            "simpleResponse": {
+                              'textToSpeech': 'Here is the suggestions for you',
+                              'diaplayText': 'hello hi this is smaple text, hindn dhkjxdbkbkbb  dhbhbjdb jbcjbdj'
+                            }
+                          },
                          {
                            "simpleResponse": {
                             "textToSpeech": "You can click on any suggestions for forther assistant.",
@@ -87,11 +99,7 @@ function sendDefaultResponse(request,passtoHandler){
                            }
                            
                          },
-                         {
-                             'simpleResponse':{
-                                 'textToSpeech':'hello how are you?'
-                             }
-                         },
+                        
                          {
                              "basicCard": {
                                  "title": "Math & prime numbers",
