@@ -15,7 +15,7 @@ const fromPassingTrain = require('../module/RequestType/getPassingTrain');
 const fromAvailSeat = require('../module/RequestType/getSeatAvailStatus');
 const fromTBS = require('../module/RequestType/getListOfTrainBetweenStation');
 const fromTrainSchedule = require('../module/RequestType/getTrainSchedule');
-const fromRailWayAPI = require('../RailwayApiCall/calRailwayApi');
+//const fromRailWayAPI = require('../RailwayApiCall/calRailwayApi');
 
 
 
