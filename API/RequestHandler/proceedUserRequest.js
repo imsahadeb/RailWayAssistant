@@ -111,6 +111,6 @@ function sendDefaultResponse(request,passtoHandler){
           }
         }
       }
-      passtoHandler(ob);
+      passtoHandler(results);
     }
       
