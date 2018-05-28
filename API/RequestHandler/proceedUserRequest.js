@@ -141,6 +141,7 @@ function sendDefaultResponse(request,passtoHandler){
           }
         }
       }
-    })
       passtoHandler(results);
+    })
+     
 }
