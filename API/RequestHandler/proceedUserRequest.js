@@ -1,6 +1,7 @@
 
 ///////////**********API REQUEST  HANDLER FILE *************//////
 const fromRailWayAPI = require('../RailwayApiCall/calRailwayApi');
+const replace =require('str-replace');
 
 /////////******* IMPORTINGALL PARTICULAR REQUESTHANDLING FILES  ******\\\\\\\\\\\\
 
@@ -67,9 +68,10 @@ function (request,passtoHandler){
 }
 
 function sendDefaultResponse(request,passtoHandler){
-    URL ='https://api.railwayapi.com/v2/arrivals/station/ncb/hours/2/apikey/q86si59pft/';
+    URL ='https://api.railwayapi.com/v2/arrivals/station/ncb/hours/2/apikey/ye1rpmx0tk/';
     fromRailWayAPI.callTheRailwayApi(URL,(getResPonseFromApi)=>{
         getJsonData = JSON.parse(getResPonseFromApi);
+        //console.log(getJsonData);
         total = getJsonData.total;
         outPut ='';
         for(i=0;i<total;i++){
@@ -78,12 +80,26 @@ function sendDefaultResponse(request,passtoHandler){
             arrivalTime=getJsonData.trains[i].scharr;
             deptTime = getJsonData.trains[i].schdep;
             currentStatus = getJsonData.trains[i].delayarr;
-            outPut +="'cells':[{'text':'" +trainName+"("+trainNumber+")'},"
-                      +"{ 'text':'"+arrivalTime+"'},"
-                      +"{ 'text': '"+deptTime+"'},"
-                      +"{ 'text': '"+currentStatus+"'}],'dividerAfter':true},"
-             }
-   
+            // outPut +="  'cells':[{'text':'" +trainName+"("+trainNumber+")'},"
+            //           +"{ 'text':'"+arrivalTime+"'},"
+            //           +"{ 'text': '"+deptTime+"'},"
+            //           +"{ 'text': '"+currentStatus+"'}],'dividerAfter':true}, "
+             
+
+            outPut+={
+                  'cells':"[{"+'text'+":'"+trainName+"'("+trainNumber+")'},"
+                     +"{"+'text'+":'"+arrivalTime+"'},"
+                     +"{"+'text'+":'"+deptTime+"'},"
+                     +"{"+'text'+":'"+currentStatus+"'}],"+'dividerAfter'+"true},"
+        
+            }
+            console.log(outPut.cells);
+           
+
+           
+
+        }
+     // let fiterd = JSON.parse(outPut);
 
     var results={
         "payload": {
