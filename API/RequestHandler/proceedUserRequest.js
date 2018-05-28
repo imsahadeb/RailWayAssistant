@@ -180,29 +180,38 @@ function sendDefaultResponse(request,passtoHandler){
       var tableCard={
         "payload": {
             "facebook" : {
-                        "text": "Select any from below to get started",
-                            "quick_replies": [
-                                  {
-                                     "content_type": "text",
-                                     "title": "PNR Status",
-                                     "payload": "PNR Status"
-                                  },
-                                  {
-                                     "content_type": "text",
-                                     "title": "Live Train Status",
-                                     "payload": "Train Running Status"
-                                 },
-                                 {
-                                     "content_type": "text",
-                                     "title": "Train Schedule",
-                                     "payload": "train schedule"
-                                  },
-                                  {
-                                     "content_type": "text",
-                                     "title": "Seat Status",
-                                     "payload": "Current Seat Status"
-                                  }
-                               ]
+                "attachment":{
+                    "type":"template",
+                    "payload":{
+                      "template_type":"generic",
+                      "elements":[
+                         {
+                          "title":"Welcome!",
+                          "image_url":"https://petersfancybrownhats.com/company_image.png",
+                          "subtitle":"We have the right hat for everyone.",
+                          "default_action": {
+                            "type": "web_url",
+                            "url": "https://petersfancybrownhats.com/view?item=103",
+                            "messenger_extensions": false,
+                            "webview_height_ratio": "tall",
+                            "fallback_url": "https://petersfancybrownhats.com/"
+                          },
+                          "buttons":[
+                            {
+                              "type":"web_url",
+                              "url":"https://petersfancybrownhats.com",
+                              "title":"View Website"
+                            },{
+                              "type":"postback",
+                              "title":"Start Chatting",
+                              "payload":"DEVELOPER_DEFINED_PAYLOAD"
+                            }              
+                          ]      
+                        }
+                      ]
+                    }
+                  }
+                
                             
                          },
           "google": {
