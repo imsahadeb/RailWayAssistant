@@ -307,8 +307,8 @@ function sendDefaultResponse(request,passtoHandler){
                         "elements": 
                         [
                             {
-                                "title": title,
-                                "image_url": url,
+                                "title": 'title',
+                                "image_url": 'url',
                                 "buttons":
                                 [
                                     {
