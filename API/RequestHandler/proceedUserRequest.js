@@ -294,6 +294,35 @@ function sendDefaultResponse(request,passtoHandler){
           }
         }
       }
-      passtoHandler(tableCard);
+      //passtoHandler(tableCard);
+    
+
+    var facebook = {
+        'data': {
+            "facebook": {
+                "attachment": {
+                    "type": "template",
+                    "payload": {
+                        "template_type": "generic",
+                        "elements": 
+                        [
+                            {
+                                "title": title,
+                                "image_url": url,
+                                "buttons":
+                                [
+                                    {
+                                        "type": "postback",
+                                        "title": `BUTTON_TITLE`,
+                                        "payload": `<PAYLOAD>`
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }
+        }
     }
-      
+     passtoHandler(facebook);
+}
