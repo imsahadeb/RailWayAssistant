@@ -25,7 +25,7 @@ module.exports.getPassingTrain = function(request,passToHandler){
           for(i=0;i<trainList.length;i++){
               tarinName= trainList[i].name;
               trainNumbr= trainList[i].number;
-              actArrTime = trainList[i].actarr;
+              schArrTime = trainList[i].scharr;
               currently = trainList[i].delayarr;
               if(currently !='RIGHT TIME'){
                   currently="is late by " + currently + " minutes";
@@ -35,7 +35,7 @@ module.exports.getPassingTrain = function(request,passToHandler){
               }
               result+=' Train Number: ' +trainNumbr+', '+ tarinName
 
-                    +' Actual Arival Time ' +actArrTime+', ' + currently +
+                    +' Schedule Arival Time ' +schArrTime+', ' + currently +
                     '';
          }
          console.log(result);
