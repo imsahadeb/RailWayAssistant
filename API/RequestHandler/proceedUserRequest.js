@@ -81,10 +81,10 @@ function sendDefaultResponse(request,passtoHandler){
                 }
               ]
             },
-            "systemIntent": {
-              "intent": "actions.intent.OPTION",
-              "data": {
-                "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
+            // "systemIntent": {
+            //   "intent": "actions.intent.OPTION",
+            //   "data": {
+            //     "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
                 "listSelect": {
                   "title": "Hello",
                   "items": [
@@ -106,8 +106,8 @@ function sendDefaultResponse(request,passtoHandler){
                     }
                   ]
                 }
-              }
-            }
+            //  }
+           // }
           }
         }
       }
