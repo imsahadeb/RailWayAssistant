@@ -192,7 +192,7 @@ function sendDefaultResponse(request,passtoHandler){
                           "default_action": {
                             "type": "web_url",
                             "url": "https://petersfancybrownhats.com/view?item=103",
-                            "messenger_extensions": false,
+                            "messenger_extensions": true,
                             "webview_height_ratio": "tall",
                             "fallback_url": "https://petersfancybrownhats.com/"
                           },
@@ -211,9 +211,7 @@ function sendDefaultResponse(request,passtoHandler){
                       ]
                     }
                   }
-                
-                            
-                         },
+                },
           "google": {
             "expectUserResponse": true,
             "richResponse": {
