@@ -21,12 +21,22 @@ module.exports.getPnrStatus = function getPnrStatus(request,passtoHandler){
         boardinPoint=getJsonData.boarding_point.name;
         toStation=getJsonData.to_station.name;
         fromStation=getJsonData.from_station.name;
+        chart=getJsonData.chart_prepared;
+        if(chart==true){
+            chart="Chart Prepare"
+        }
+        else if(chart==false){
+            chart="Chart Not Prepared"
+        }
+        totalPassemger= getJsonData.total_passengers;
 
         outPutToEndUser={
         fulfillmentText:"TRAIN: "+trainNumber+","+trainName+", PNR Number: "+pnrNumber
                         +", Resarvation From: "+fromStation+" to Resarvation upto: "+toStation
                         +", Boarding Staton: "+boardinPoint+ " ,DOJ: "+dateOfJourney
+                        +", Number of Person: "+totalPassemger
                         +", Booking Status: "+pnrBookingStatus+", Current Status: "+pnrCurrentStatus
+                        +", Chart Status: "+chart
     }
 
         passtoHandler(outPutToEndUser);
