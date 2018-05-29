@@ -35,7 +35,7 @@ function (request,passtoHandler){
         sendDefaultResponse(request,passtoHandler);
     }
     if(intent==getDataFromConstantFile.PNR_STATUS_INTENT){
-        getPnrStatus(request,passtoHandler);
+        fromPNR.getPnrStatus(request,passtoHandler);
     }
     if(intent==getDataFromConstantFile.LIVE_TRAIN_STATUS_INTENT){
         fromLiveTrain.getLiveTrainStatus(request,passtoHandler);
