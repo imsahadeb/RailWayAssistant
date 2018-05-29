@@ -23,8 +23,8 @@ module.exports.getPnrStatus = function getPnrStatus(request,passtoHandler){
         fromStation=getJsonData.from_station.name;
 
         outPutToEndUser={
-        fulfillmentText:"TRAIN: "+trainNumber+","+trainNumber+" PNR Number: "+pnrNumber
-                        +" Resarvation From: "+fromStation+" to Resarvation upto: "+toStation
+        fulfillmentText:"TRAIN: "+trainNumber+","+trainName+", PNR Number: "+pnrNumber
+                        +", Resarvation From: "+fromStation+" to Resarvation upto: "+toStation
                         +", Boarding Staton: "+boardinPoint+ " ,DOJ: "+dateOfJourney
                         +", Booking Status: "+pnrBookingStatus+", Current Status: "+pnrCurrentStatus
     }
