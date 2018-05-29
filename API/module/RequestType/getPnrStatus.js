@@ -23,7 +23,7 @@ module.exports.getPnrStatus = function getPnrStatus(request,passtoHandler){
         fromStation=getJsonData.from_station.name;
         chart=getJsonData.chart_prepared;
         if(chart==true){
-            chart="Chart Prepare"
+            chart="Chart Prepared"
         }
         else if(chart==false){
             chart="Chart Not Prepared"
