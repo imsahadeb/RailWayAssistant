@@ -71,8 +71,8 @@ function (request,passtoHandler){
 
 function sendDefaultResponse(request,passtoHandler){
   var ob={
-    'payload': {
-      'google': {
+    "payload": {
+      "google": {
     "expectUserResponse": true,
     "isSsml": false,
     "noInputPrompts": [],
