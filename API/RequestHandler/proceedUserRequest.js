@@ -1,3 +1,4 @@
+import { PassThrough } from 'stream';
 
 ///////////**********API REQUEST  HANDLER FILE *************//////
 const fromRailWayAPI = require('../RailwayApiCall/calRailwayApi');
@@ -28,8 +29,7 @@ function (request,passtoHandler){
 
    
     if(intent==getDataFromConstantFile.DEFAULT_FALLBACK_INTENT){
-
-
+     // sendDefaultResponse(request,passtoHandler);
     }
     if(intent==getDataFromConstantFile.DEFAULT_INTENT){
         sendDefaultResponse(request,passtoHandler);
@@ -67,97 +67,130 @@ function (request,passtoHandler){
     }
 }
 
+
+
 function sendDefaultResponse(request,passtoHandler){
-    URL ='https://api.railwayapi.com/v2/arrivals/station/ncb/hours/2/apikey/ye1rpmx0tk/';
-    fromRailWayAPI.callTheRailwayApi(URL,(getResPonseFromApi)=>{
-        getJsonData = JSON.parse(getResPonseFromApi);
-        //console.log(getJsonData);
-        total = getJsonData.total;
-        outPut ='';
-        for(i=0;i<total;i++){
-            trainName=getJsonData.trains[i].name;
-            trainNumber= getJsonData.trains[i].number;
-            arrivalTime=getJsonData.trains[i].scharr;
-            deptTime = getJsonData.trains[i].schdep;
-            currentStatus = getJsonData.trains[i].delayarr;
-            // outPut +="  'cells':[{'text':'" +trainName+"("+trainNumber+")'},"
-            //           +"{ 'text':'"+arrivalTime+"'},"
-            //           +"{ 'text': '"+deptTime+"'},"
-            //           +"{ 'text': '"+currentStatus+"'}],'dividerAfter':true}, "
+  var ob={
+    'speech': "",
+    'messages': [
+    {
+    'type': 0,
+    'speech': 'my first response'
+    },
+    {
+    'type': 0,
+    'speech': 'my second response'
+    }
+    ],
+    'source': 'sourcename'
+    }
+
+    passtoHandler(ob);
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function sendDefaultResponse(request,passtoHandler){
+//     URL ='https://api.railwayapi.com/v2/arrivals/station/ncb/hours/2/apikey/ye1rpmx0tk/';
+//     fromRailWayAPI.callTheRailwayApi(URL,(getResPonseFromApi)=>{
+//         getJsonData = JSON.parse(getResPonseFromApi);
+//         //console.log(getJsonData);
+//         total = getJsonData.total;
+//         outPut ='';
+//         for(i=0;i<total;i++){
+//             trainName=getJsonData.trains[i].name;
+//             trainNumber= getJsonData.trains[i].number;
+//             arrivalTime=getJsonData.trains[i].scharr;
+//             deptTime = getJsonData.trains[i].schdep;
+//             currentStatus = getJsonData.trains[i].delayarr;
+//             // outPut +="  'cells':[{'text':'" +trainName+"("+trainNumber+")'},"
+//             //           +"{ 'text':'"+arrivalTime+"'},"
+//             //           +"{ 'text': '"+deptTime+"'},"
+//             //           +"{ 'text': '"+currentStatus+"'}],'dividerAfter':true}, "
              
 
-            outPut+={
-                  'cells':"[{"+'text'+":'"+trainName+"'("+trainNumber+")'},"
-                     +"{"+'text'+":'"+arrivalTime+"'},"
-                     +"{"+'text'+":'"+deptTime+"'},"
-                     +"{"+'text'+":'"+currentStatus+"'}],"+'dividerAfter'+"true},"
+//             outPut+={
+//                   'cells':"[{"+'text'+":'"+trainName+"'("+trainNumber+")'},"
+//                      +"{"+'text'+":'"+arrivalTime+"'},"
+//                      +"{"+'text'+":'"+deptTime+"'},"
+//                      +"{"+'text'+":'"+currentStatus+"'}],"+'dividerAfter'+"true},"
         
-            }
-            console.log(outPut.cells);
+//             }
+//             console.log(outPut.cells);
            
 
            
 
-        }
-     // let fiterd = JSON.parse(outPut);
+//         }
+//      // let fiterd = JSON.parse(outPut);
 
-    var results={
-        "payload": {
-          "google": {
-            "expectUserResponse": true,
-            "richResponse": {
-              "items": [
-                {
-                  "simpleResponse": {
-                    "textToSpeech": "Simple Response"
-                  }
-                },
-                {
-                  "tableCard": {
-                    "title": "Table Title",
-                    "subtitle": "Table Subtitle",
-                    "image": {
-                      "url": "https://avatars0.githubusercontent.com/u/23533486",
-                      "accessibilityText": "Actions on Google"
-                    },
-                    "rows": [
-                        outPut
-                    ],
-                    "columnProperties": [
-                      {
-                        "header": "Train Name(No)",
-                        "horizontalAlignment": "LEADING"
-                      },
-                      {
-                        "header": "Arr Time",
-                        "horizontalAlignment": "CENTER"
-                      },
-                      {
-                        "header": "Dep. Time",
-                        "horizontalAlignment": "CENTER"
-                      },
-                      {
-                          "header":"Current State",
-                          "horizontalAlignment":"TRAILING"
-                      }
-                    ],
-                    "buttons": [
-                      {
-                        "title": "Button Title",
-                        "openUrlAction": {
-                          "url": "https://github.com/actions-on-google"
-                        }
-                      }
-                    ]
-                  }
-                }
-              ]
-            },
-            "userStorage": "{\"data\":{}}"
-          }
-        }
-      }
-      passtoHandler(results);
-    })
+//     var results={
+//         "payload": {
+//           "google": {
+//             "expectUserResponse": true,
+//             "richResponse": {
+//               "items": [
+//                 {
+//                   "simpleResponse": {
+//                     "textToSpeech": "Simple Response"
+//                   }
+//                 },
+//                 {
+//                   "tableCard": {
+//                     "title": "Table Title",
+//                     "subtitle": "Table Subtitle",
+//                     "image": {
+//                       "url": "https://avatars0.githubusercontent.com/u/23533486",
+//                       "accessibilityText": "Actions on Google"
+//                     },
+//                     "rows": [
+//                         outPut
+//                     ],
+//                     "columnProperties": [
+//                       {
+//                         "header": "Train Name(No)",
+//                         "horizontalAlignment": "LEADING"
+//                       },
+//                       {
+//                         "header": "Arr Time",
+//                         "horizontalAlignment": "CENTER"
+//                       },
+//                       {
+//                         "header": "Dep. Time",
+//                         "horizontalAlignment": "CENTER"
+//                       },
+//                       {
+//                           "header":"Current State",
+//                           "horizontalAlignment":"TRAILING"
+//                       }
+//                     ],
+//                     "buttons": [
+//                       {
+//                         "title": "Button Title",
+//                         "openUrlAction": {
+//                           "url": "https://github.com/actions-on-google"
+//                         }
+//                       }
+//                     ]
+//                   }
+//                 }
+//               ]
+//             },
+//             "userStorage": "{\"data\":{}}"
+//           }
+//         }
+//       }
+//       passtoHandler(results);
+//     })
      
-}
+// }
