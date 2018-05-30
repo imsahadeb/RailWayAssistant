@@ -70,60 +70,95 @@ function (request,passtoHandler){
 
 
 function sendDefaultResponse(request,passtoHandler){
-  var ob= {
-    "platform": "google",
-    "type": "custom_payload",
+  var ob={
     "payload": {
       "google": {
         "expectUserResponse": true,
-        "isSsml": false,
-        "noInputPrompts": [],
         "richResponse": {
           "items": [
             {
               "simpleResponse": {
-                "displayText": "hi",
-                "textToSpeech": "hello"
+                "textToSpeech": "Simple Response"
               }
-            }
-          ],
-          "suggestions": [
-            {
-              "title": "Say this"
             },
             {
-              "title": "or this"
+              "tableCard": {
+                "title": "Table Title",
+                "subtitle": "Table Subtitle",
+                "image": {
+                  "url": "https://avatars0.githubusercontent.com/u/23533486",
+                  "accessibilityText": "Actions on Google"
+                },
+                "rows": [
+                  {
+                    "cells": [
+                      {
+                        "text": "row 1 item 1"
+                      },
+                      {
+                        "text": "row 1 item 2"
+                      },
+                      {
+                        "text": "row 1 item 3"
+                      }
+                    ],
+                    "dividerAfter": false
+                  },
+                  {
+                    "cells": [
+                      {
+                        "text": "row 2 item 1"
+                      },
+                      {
+                        "text": "row 2 item 2"
+                      },
+                      {
+                        "text": "row 2 item 3"
+                      }
+                    ],
+                    "dividerAfter": true
+                  },
+                  {
+                    "cells": [
+                      {
+                        "text": "row 2 item 1"
+                      },
+                      {
+                        "text": "row 2 item 2"
+                      },
+                      {
+                        "text": "row 2 item 3"
+                      }
+                    ]
+                  }
+                ],
+                "columnProperties": [
+                  {
+                    "header": "header 1",
+                    "horizontalAlignment": "CENTER"
+                  },
+                  {
+                    "header": "header 2",
+                    "horizontalAlignment": "LEADING"
+                  },
+                  {
+                    "header": "header 3",
+                    "horizontalAlignment": "TRAILING"
+                  }
+                ],
+                "buttons": [
+                  {
+                    "title": "Button Title",
+                    "openUrlAction": {
+                      "url": "https://github.com/actions-on-google"
+                    }
+                  }
+                ]
+              }
             }
           ]
         },
-        "systemIntent": {
-          "data": {
-            "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
-            "listSelect": {
-              "items": [
-                {
-                  "optionInfo": {
-                    "key": "key1",
-                    "synonyms": [
-                      "key one"
-                    ]
-                  },
-                  "title": "must not be empty"
-                },
-                {
-                  "optionInfo": {
-                    "key": "key2",
-                    "synonyms": [
-                      "key two"
-                    ]
-                  },
-                  "title": "must not be empty, but unique, for some reason"
-                }
-              ]
-            }
-          },
-          "intent": "actions.intent.OPTION"
-        }
+        "userStorage": "{\"data\":{}}"
       }
     }
   }
