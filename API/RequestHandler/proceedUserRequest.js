@@ -71,19 +71,56 @@ function (request,passtoHandler){
 
 function sendDefaultResponse(request,passtoHandler){
   var ob={
-    'speech': "",
-    'messages': [
-    {
-    'type': 0,
-    'speech': 'my first response'
+    "expectUserResponse": true,
+    "isSsml": false,
+    "noInputPrompts": [],
+    "richResponse": {
+      "items": [
+        {
+          "simpleResponse": {
+            "displayText": "hi",
+            "textToSpeech": "hello"
+          }
+        }
+      ],
+      "suggestions": [
+        {
+          "title": "Say this"
+        },
+        {
+          "title": "or this"
+        }
+      ]
     },
-    {
-    'type': 0,
-    'speech': 'my second response'
+    "systemIntent": {
+      "data": {
+        "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
+        "listSelect": {
+          "items": [
+            {
+              "optionInfo": {
+                "key": "key1",
+                "synonyms": [
+                  "key one"
+                ]
+              },
+              "title": "must not be empty, but unique"
+            },
+            {
+              "optionInfo": {
+                "key": "key2",
+                "synonyms": [
+                  "key two"
+                ]
+              },
+              "title": "must not be empty, but unique"
+            }
+          ]
+        }
+      },
+      "intent": "actions.intent.OPTION"
     }
-    ],
-    'source': 'sourcename'
-    }
+  }
 
     passtoHandler(ob);
   }
