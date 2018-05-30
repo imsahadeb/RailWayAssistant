@@ -71,6 +71,8 @@ function (request,passtoHandler){
 
 function sendDefaultResponse(request,passtoHandler){
   var ob={
+    'payload': {
+      'google': {
     "expectUserResponse": true,
     "isSsml": false,
     "noInputPrompts": [],
@@ -120,6 +122,8 @@ function sendDefaultResponse(request,passtoHandler){
       },
       "intent": "actions.intent.OPTION"
     }
+  }
+}
   }
 
     passtoHandler(ob);
