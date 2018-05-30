@@ -70,62 +70,64 @@ function (request,passtoHandler){
 
 
 function sendDefaultResponse(request,passtoHandler){
-  var ob={
+  var ob= {
+    "platform": "google",
+    "type": "custom_payload",
     "payload": {
       "google": {
-    "expectUserResponse": true,
-    "isSsml": false,
-    "noInputPrompts": [],
-    "richResponse": {
-      "items": [
-        {
-          "simpleResponse": {
-            "displayText": "hi",
-            "textToSpeech": "hello"
-          }
-        }
-      ],
-      "suggestions": [
-        {
-          "title": "Say this"
-        },
-        {
-          "title": "or this"
-        }
-      ]
-    },
-    "systemIntent": {
-      "data": {
-        "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
-        "listSelect": {
+        "expectUserResponse": true,
+        "isSsml": false,
+        "noInputPrompts": [],
+        "richResponse": {
           "items": [
             {
-              "optionInfo": {
-                "key": "key1",
-                "synonyms": [
-                  "key one"
-                ]
-              },
-              "title": "must not be empty, but unique"
+              "simpleResponse": {
+                "displayText": "hi",
+                "textToSpeech": "hello"
+              }
+            }
+          ],
+          "suggestions": [
+            {
+              "title": "Say this"
             },
             {
-              "optionInfo": {
-                "key": "key2",
-                "synonyms": [
-                  "key two"
-                ]
-              },
-              "title": "must not be empty, but unique"
+              "title": "or this"
             }
           ]
+        },
+        "systemIntent": {
+          "data": {
+            "@type": "type.googleapis.com/google.actions.v2.OptionValueSpec",
+            "listSelect": {
+              "items": [
+                {
+                  "optionInfo": {
+                    "key": "key1",
+                    "synonyms": [
+                      "key one"
+                    ]
+                  },
+                  "title": "must not be empty"
+                },
+                {
+                  "optionInfo": {
+                    "key": "key2",
+                    "synonyms": [
+                      "key two"
+                    ]
+                  },
+                  "title": "must not be empty, but unique, for some reason"
+                }
+              ]
+            }
+          },
+          "intent": "actions.intent.OPTION"
         }
-      },
-      "intent": "actions.intent.OPTION"
+      }
     }
   }
-}
-  }
-
+   
     passtoHandler(ob);
   }
 
