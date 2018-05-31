@@ -16,12 +16,23 @@ module.exports.getFareDetails = function(request,passToHandler){
     +source_stn_code+'/dest/' + DEST_STN_CODE +'/age/20/pref/'+SEAT_CLASS
     +'/quota/GN/date/'+DATE + '/apikey/'+getDataFromConstantFile.API_KEY_1+ '/';
 
-    fromRailWayAPI.callTheRailwayApi(url,(getResponseFromAPI)=>{
-        let getJsonData = JSON.parse(getResponseFromAPI);
-        let outPutToEndUser = {
-           // 'fulfillmentText':
+    fromRailWayAPI.callTheRailwayApi(url,(getResponseFromAPI,err)=>{
+        if(err){
+            let outPutToEndUser={
+                fulfillmentText="Unable to get result from Server. "+ err
+            }
+           
+            passToHandler(outPutToEndUser);
         }
-        passtoHandler(outPutToEndUser);
+
+        else{
+            let getJsonData = JSON.parse(getResponseFromAPI);
+            let outPutToEndUser = {
+               // 'fulfillmentText':
+            }
+            passtoHandler(outPutToEndUser);
+        }
+       
     });
 
 }

@@ -20,7 +20,17 @@ module.exports.getSeatAvailStatus = function(request,passToHandler){
     +SOURCE_STN+'/dest/'+DEST_STN+'/date/'+DATE+'/pref/'+SEAT_CLASS+'/quota/gn/apikey/'
     +getDataFromConstantFile.API_KEY_1+'/';
     
-    fromRailWayAPI.callTheRailwayApi(URL,(getResponsefromApi)=>{
+    fromRailWayAPI.callTheRailwayApi(URL,(getResponsefromApi,err)=>{
+        if(err){
+            let outPutToEndUser={
+                fulfillmentText: 'Uable to get results from server'+err
+            }
+            passToHandler(outPutToEndUser);
+        }
+
+        else{
+
+
         let getJsonData = JSON.parse(getResponsefromApi);
         trainName = getJsonData.train.name;
         trainNumber = getJsonData.train.number;
@@ -42,6 +52,9 @@ module.exports.getSeatAvailStatus = function(request,passToHandler){
                          'fulfillmentText':results
                      }
                       passToHandler(outPutToEndUser);
+
+        }
+        
    
-          });
+   });
 }
