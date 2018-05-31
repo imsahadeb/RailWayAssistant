@@ -23,7 +23,7 @@ module.exports.getSeatAvailStatus = function(request,passToHandler){
     fromRailWayAPI.callTheRailwayApi(URL,(getResponsefromApi,err)=>{
         if(err){
             let outPutToEndUser={
-                fulfillmentText: 'Uable to get results from server'+err
+                fulfillmentText: 'Uable to get results from server'
             }
          //   passToHandler(outPutToEndUser);
         }

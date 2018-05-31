@@ -19,7 +19,7 @@ module.exports.getFareDetails = function(request,passToHandler){
     fromRailWayAPI.callTheRailwayApi(url,(getResponseFromAPI,err)=>{
         if(err){
             let outPutToEndUser={
-                fulfillmentText="Unable to get result from Server. "+ err
+                fulfillmentText="Unable to get result from Server. "
             }
            
           //  passToHandler(outPutToEndUser);

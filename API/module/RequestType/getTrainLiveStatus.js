@@ -14,7 +14,7 @@ module.exports.getLiveTrainStatus= function getLiveTrainStatus(request,passtoHan
     fromRailWayAPI.callTheRailwayApi(url,(getResponseFromAPI,err)=>{
         if(err){
             outPutToEndUser={
-                fulfillmentText:'Unable to get results from server'+ err
+                fulfillmentText:'Unable to get results from server'
             }
            // passtoHandler(outPutToEndUser);
         }

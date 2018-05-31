@@ -14,7 +14,7 @@ module.exports.getTrainNumber = function(request,passToHandler){
     fromRailWayAPI.callTheRailwayApi(URL,(getResponseFromApi,err)=>{
         if(err){
             outPutToEndUser={
-                fulfillmentText:'unable to get results from server.' + err
+                fulfillmentText:'unable to get results from server.'
             }
            // passToHandler(outPutToEndUser);
         }
