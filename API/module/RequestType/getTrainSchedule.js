@@ -17,7 +17,7 @@ module.exports.getTrainSchedule = function(request,passToHandler){
             outPutToEndUsr={
                 fulfillmentText:'Unable to get results from server.' +err
             }
-            passToHandler(outPutToEndUsr);
+           // passToHandler(outPutToEndUsr);
         }
 
         else{
@@ -41,10 +41,10 @@ module.exports.getTrainSchedule = function(request,passToHandler){
            outPutToEndUsr= {
                'fulfillmentText':results
            }
-           passToHandler(outPutToEndUsr);
+          
 
         }
-      
+        passToHandler(outPutToEndUsr);
     })
 
     

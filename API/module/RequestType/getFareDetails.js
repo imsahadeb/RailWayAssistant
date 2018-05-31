@@ -22,7 +22,7 @@ module.exports.getFareDetails = function(request,passToHandler){
                 fulfillmentText="Unable to get result from Server. "+ err
             }
            
-            passToHandler(outPutToEndUser);
+          //  passToHandler(outPutToEndUser);
         }
 
         else{
@@ -30,9 +30,9 @@ module.exports.getFareDetails = function(request,passToHandler){
             let outPutToEndUser = {
                // 'fulfillmentText':
             }
-            passtoHandler(outPutToEndUser);
+           
         }
-       
+        passtoHandler(outPutToEndUser);
     });
 
 }

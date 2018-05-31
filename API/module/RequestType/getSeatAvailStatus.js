@@ -25,7 +25,7 @@ module.exports.getSeatAvailStatus = function(request,passToHandler){
             let outPutToEndUser={
                 fulfillmentText: 'Uable to get results from server'+err
             }
-            passToHandler(outPutToEndUser);
+         //   passToHandler(outPutToEndUser);
         }
 
         else{
@@ -51,9 +51,10 @@ module.exports.getSeatAvailStatus = function(request,passToHandler){
                      outPutToEndUser={
                          'fulfillmentText':results
                      }
-                      passToHandler(outPutToEndUser);
+                     
 
         }
+        passToHandler(outPutToEndUser);
         
    
    });

@@ -16,7 +16,7 @@ module.exports.getPnrStatus = function getPnrStatus(request,passtoHandler){
                 fulfillmentText="Unable to get result from Server. "+ err
             }
            
-            passToHandler(outPutToEndUser);
+            
         }
 
         else{
@@ -49,10 +49,11 @@ module.exports.getPnrStatus = function getPnrStatus(request,passtoHandler){
                             +", Chart Status: "+chart
         }
     
-       passtoHandler(outPutToEndUser);
+    
        
 
         }
+        passtoHandler(outPutToEndUser);
     })
       
 

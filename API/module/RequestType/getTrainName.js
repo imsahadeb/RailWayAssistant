@@ -18,7 +18,7 @@ module.exports.getTrainName = function(request,passToHandler){
             outPutToEndUser={
                 fulfillmentText:'Unable to get results from server. '+ err
             }
-            passToHandler(outPutToEndUser);
+           // passToHandler(outPutToEndUser);
         }
 
         else{
@@ -29,8 +29,8 @@ module.exports.getTrainName = function(request,passToHandler){
                  'fulfillmentText':'Train Name: ' +trainName+', '+'Tran Number: '+trainNumber
              }
     
-             passToHandler(results);
+            
         }
-      
+        passToHandler(results);
     })
 }

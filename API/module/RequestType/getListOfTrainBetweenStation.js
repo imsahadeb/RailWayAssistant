@@ -19,7 +19,7 @@ module.exports.getListofTrainBetweenStation = function(request,passToHandler){
                 fulfillmentText="Unable to get result from Server. "+ err
             }
            
-            passToHandler(outPutToEndUser);
+            
         }
 
         else{
@@ -35,6 +35,6 @@ module.exports.getListofTrainBetweenStation = function(request,passToHandler){
         }
         }
 
-        
+        passToHandler(outPutToEndUser);
     });
 }

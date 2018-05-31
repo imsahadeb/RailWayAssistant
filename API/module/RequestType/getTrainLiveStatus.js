@@ -16,7 +16,7 @@ module.exports.getLiveTrainStatus= function getLiveTrainStatus(request,passtoHan
             outPutToEndUser={
                 fulfillmentText:'Unable to get results from server'+ err
             }
-            passtoHandler(outPutToEndUser);
+           // passtoHandler(outPutToEndUser);
         }
 
         else{
@@ -27,9 +27,9 @@ module.exports.getLiveTrainStatus= function getLiveTrainStatus(request,passtoHan
             + ' and the ' + changeCase.titleCase(getJsonData.position)
         }
 
-        passtoHandler(outPutToEndUser);
+      
             
         }
-        
+        passtoHandler(outPutToEndUser);
     })
 }
