@@ -30,7 +30,7 @@ module.exports.getListofTrainBetweenStation = function(request,passToHandler){
             
         }
 
-        else{
+        
 
         var getJsonData = JSON.parse(getResponseFromAPI);
         var trainList = getJsonData.trains;
@@ -56,7 +56,7 @@ module.exports.getListofTrainBetweenStation = function(request,passToHandler){
                 +destCode+') at '+destArrivalTime
             }
         }
-        }
+        
 
         passToHandler(outPutToEndUser);
     });
