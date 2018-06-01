@@ -10,7 +10,7 @@ module.exports.getListofTrainBetweenStation = function(request,passToHandler){
     let SOURCE_STN = parameters.SOURCE_STN;
     let DEST_STN = parameters.DEST_STN;
     let DATE = parameters.DATE;
-    if(DATE=='undefined'){
+    if(DATE=='undefined'|| DATE==''){
         let date = new Date();
         console.log('date: '+date);
         var d = moment(date,'YYYY-DD-MM').format('DD-MM-YYYY');
