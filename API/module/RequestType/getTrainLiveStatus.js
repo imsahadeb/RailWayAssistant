@@ -15,7 +15,7 @@ module.exports.getLiveTrainStatus= function getLiveTrainStatus(request,passtoHan
         var getJsonData = JSON.parse(getResponseFromAPI);
         var responseCode=getJsonData.response_code;
         var outPutToEndUser='';
-        if(err){
+        if(responseCode!=200){
             outPutToEndUser={
                 fulfillmentText:'Unable to get results from server'
             }

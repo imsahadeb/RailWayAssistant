@@ -14,7 +14,7 @@ module.exports.getPnrStatus = function getPnrStatus(request,passtoHandler){
         var responseCode=getJsonData.response_code;
         var outPutToEndUser='';
 
-        if(err){
+        if(responseCode!=200){
              outPutToEndUser={
                 fulfillmentText:"Unable to get result from Server. "
             }

@@ -48,7 +48,7 @@ module.exports.getListofTrainBetweenStation = function(request,passToHandler){
             destCode = trainList[i].to_station.code;
             
             
-            outPutToEndUser={
+            outPutToEndUser+={
                 fulfillmentText:'Train Number: '+trainNumber+', '+changeCase.titleCase(tarinName) 
                 + ' departure time from ' +sourceStation+'('+sourceCode+') is '+sourceDeptTime
                 + ' and it takes total '+travelTime +' to reach the destination staion '+ destStation+'('

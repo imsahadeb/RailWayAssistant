@@ -15,7 +15,7 @@ module.exports.getTrainNumber = function(request,passToHandler){
         var getJsonData = JSON.parse(getResponseFromAPI);
         var responseCode=getJsonData.response_code;
         var outPutToEndUser='';
-        if(err){
+        if(responseCode!=200){
             outPutToEndUser={
                 fulfillmentText:'unable to get results from server.'
             }
