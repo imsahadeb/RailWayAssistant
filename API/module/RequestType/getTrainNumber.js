@@ -12,6 +12,7 @@ module.exports.getTrainNumber = function(request,passToHandler){
               +'/apikey/'+getDataFromConstantFile.API_KEY_1+'/';
     
     fromRailWayAPI.callTheRailwayApi(URL,(getResponseFromApi,err)=>{
+        var outPutToEndUser='';
         if(err){
             outPutToEndUser={
                 fulfillmentText:'unable to get results from server.'
@@ -23,7 +24,7 @@ module.exports.getTrainNumber = function(request,passToHandler){
             let getJsonData = JSON.parse(getResponseFromApi);
             let trainName = getJsonData.train.name;
             let trainNumber = getJsonData.train.number;
-            var outPutToEndUser={
+              outPutToEndUser={
                  'fulfillmentText':'Train Name: ' +trainName+', '+'Tran Number: '+trainNumber
              }
     

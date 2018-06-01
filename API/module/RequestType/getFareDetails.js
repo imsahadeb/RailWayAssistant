@@ -17,8 +17,9 @@ module.exports.getFareDetails = function(request,passToHandler){
     +'/quota/GN/date/'+DATE + '/apikey/'+getDataFromConstantFile.API_KEY_1+ '/';
 
     fromRailWayAPI.callTheRailwayApi(url,(getResponseFromAPI,err)=>{
+        var outPutToEndUser='';
         if(err){
-            var outPutToEndUser={
+              outPutToEndUser={
                 fulfillmentText:"Unable to get result from Server. "
             }
            
@@ -27,7 +28,7 @@ module.exports.getFareDetails = function(request,passToHandler){
 
         else{
             let getJsonData = JSON.parse(getResponseFromAPI);
-            var outPutToEndUser = {
+              outPutToEndUser = {
                // 'fulfillmentText':
             }
            

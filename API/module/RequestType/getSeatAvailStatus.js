@@ -19,10 +19,11 @@ module.exports.getSeatAvailStatus = function(request,passToHandler){
     let URL = getDataFromConstantFile.API_HOST +'/v2/check-seat/train/'+TRAIN_NO+'/source/'
     +SOURCE_STN+'/dest/'+DEST_STN+'/date/'+DATE+'/pref/'+SEAT_CLASS+'/quota/gn/apikey/'
     +getDataFromConstantFile.API_KEY_1+'/';
-    
+    var outPutToEndUser='';
     fromRailWayAPI.callTheRailwayApi(URL,(getResponsefromApi,err)=>{
+        var outPutToEndUser='';
         if(err){
-            var outPutToEndUser={
+            outPutToEndUser={
                 fulfillmentText: 'Uable to get results from server'
             }
          //   passToHandler(outPutToEndUser);
@@ -48,7 +49,7 @@ module.exports.getSeatAvailStatus = function(request,passToHandler){
                       + jourenyDate + ' current seat status: '+currentStatus;
    
                      console.log(results);
-                    var outPutToEndUser={
+                     outPutToEndUser={
                          'fulfillmentText':results
                      }
                      

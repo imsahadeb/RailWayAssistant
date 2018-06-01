@@ -13,8 +13,9 @@ module.exports.getTrainSchedule = function(request,passToHandler){
     + TRAIN_NO + '/apikey/'+getDataFromConstantFile.API_KEY_1 + '/';
 
     fromRailWayAPI.callTheRailwayApi(URL,(getResponseFromApi,err)=>{
+        var outPutToEndUser='';
         if(err){
-            var outPutToEndUsr={
+                outPutToEndUsr={
                 fulfillmentText:'Unable to get results from server.'
             }
            // passToHandler(outPutToEndUsr);
@@ -38,7 +39,7 @@ module.exports.getTrainSchedule = function(request,passToHandler){
             }
             console.log(results)
     
-           var outPutToEndUsr= {
+               outPutToEndUsr= {
                'fulfillmentText':results
            }
           
