@@ -16,7 +16,13 @@ module.exports.getPassingTrain = function(request,passToHandler){
     +getDataFromConstantFile.API_KEY_1 + '/';
 
     console.log("URL :" +URL);
-    fromRailWayAPI.callTheRailwayApi(URL,(getResponseFromAPI)=>{
+    fromRailWayAPI.callTheRailwayApi(URL,(err,getResponseFromAPI)=>{
+        var outPutToEndUser='';
+        if(err){
+            outPutToEndUser={
+                fulfillmentText:'Unable to get results from server.'
+            }
+        }
         let getJsonData = JSON.parse(getResponseFromAPI);
         let trainList = getJsonData.trains;
         //  console.log(getJsonData);
