@@ -10,6 +10,11 @@ module.exports.getListofTrainBetweenStation = function(request,passToHandler){
     let SOURCE_STN = parameters.SOURCE_STN;
     let DEST_STN = parameters.DEST_STN;
     let DATE = parameters.DATE;
+    if(DATE=='undefined'){
+        let date = new Date();
+        var d = moment(date,'YYYY-DD-MM').format('DD-MM-YYYY');
+        DATE = d;
+    }
     let URL = getDataFromConstantFile.API_HOST + '/v2/between/source/' +SOURCE_STN + '/dest/'
     + DEST_STN + '/date/' + DATE + '/apikey/' +getDataFromConstantFile.API_KEY_1 + '/';
 
