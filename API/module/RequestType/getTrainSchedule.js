@@ -14,7 +14,7 @@ module.exports.getTrainSchedule = function(request,passToHandler){
 
     fromRailWayAPI.callTheRailwayApi(URL,(getResponseFromApi,err)=>{
         if(err){
-            outPutToEndUsr={
+            var outPutToEndUsr={
                 fulfillmentText:'Unable to get results from server.'
             }
            // passToHandler(outPutToEndUsr);
@@ -38,7 +38,7 @@ module.exports.getTrainSchedule = function(request,passToHandler){
             }
             console.log(results)
     
-           outPutToEndUsr= {
+           var outPutToEndUsr= {
                'fulfillmentText':results
            }
           

@@ -22,7 +22,7 @@ module.exports.getSeatAvailStatus = function(request,passToHandler){
     
     fromRailWayAPI.callTheRailwayApi(URL,(getResponsefromApi,err)=>{
         if(err){
-            let outPutToEndUser={
+            var outPutToEndUser={
                 fulfillmentText: 'Uable to get results from server'
             }
          //   passToHandler(outPutToEndUser);
@@ -42,13 +42,13 @@ module.exports.getSeatAvailStatus = function(request,passToHandler){
         currentStatus = getJsonData.availability[0].status;
 
         
-        let results = "In Train Number :"+trainNumber+', '+trainName
+        var results = "In Train Number :"+trainNumber+', '+trainName
                       +'Journey from '+fromStation+ ' to ' + toStation
                       +' on class '+ journeyClass+ ' as on the date of '
                       + jourenyDate + ' current seat status: '+currentStatus;
    
                      console.log(results);
-                     outPutToEndUser={
+                    var outPutToEndUser={
                          'fulfillmentText':results
                      }
                      

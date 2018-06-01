@@ -18,7 +18,7 @@ module.exports.getFareDetails = function(request,passToHandler){
 
     fromRailWayAPI.callTheRailwayApi(url,(getResponseFromAPI,err)=>{
         if(err){
-            let outPutToEndUser={
+            var outPutToEndUser={
                 fulfillmentText="Unable to get result from Server. "
             }
            
@@ -27,7 +27,7 @@ module.exports.getFareDetails = function(request,passToHandler){
 
         else{
             let getJsonData = JSON.parse(getResponseFromAPI);
-            let outPutToEndUser = {
+            var outPutToEndUser = {
                // 'fulfillmentText':
             }
            

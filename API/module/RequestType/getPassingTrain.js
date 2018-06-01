@@ -20,7 +20,7 @@ module.exports.getPassingTrain = function(request,passToHandler){
         let getJsonData = JSON.parse(getResponseFromAPI);
         let trainList = getJsonData.trains;
         //  console.log(getJsonData);
-          let outPutToEndUser= '';
+          var outPutToEndUser= '';
           let result='';
           for(i=0;i<trainList.length;i++){
               tarinName= trainList[i].name;

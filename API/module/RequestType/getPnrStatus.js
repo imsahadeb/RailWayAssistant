@@ -12,7 +12,7 @@ module.exports.getPnrStatus = function getPnrStatus(request,passtoHandler){
      fromRailWayAPI.callTheRailwayApi(URL,(getResponseFromAPI,err)=>{
 
         if(err){
-            let outPutToEndUser={
+            var outPutToEndUser={
                 fulfillmentText="Unable to get result from Server. "
             }
            
@@ -40,7 +40,7 @@ module.exports.getPnrStatus = function getPnrStatus(request,passtoHandler){
             }
             totalPassemger= getJsonData.total_passengers;
     
-            outPutToEndUser={
+            var outPutToEndUser={
             fulfillmentText:"TRAIN: "+trainNumber+","+trainName+", PNR Number: "+pnrNumber
                             +", Resarvation From: "+fromStation+" to Resarvation upto: "+toStation
                             +", Boarding Staton: "+boardinPoint+ " ,DOJ: "+dateOfJourney

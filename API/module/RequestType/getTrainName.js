@@ -15,7 +15,7 @@ module.exports.getTrainName = function(request,passToHandler){
     
     fromRailWayAPI.callTheRailwayApi(URL,(getResponseFromApi,err)=>{
         if(err){
-            outPutToEndUser={
+            var outPutToEndUser={
                 fulfillmentText:'Unable to get results from server. '
             }
            // passToHandler(outPutToEndUser);
@@ -25,7 +25,7 @@ module.exports.getTrainName = function(request,passToHandler){
             let getJsonData = JSON.parse(getResponseFromApi);
             let trainName = getJsonData.train.name;
             let trainNumber = getJsonData.train.number;
-             let results={
+            var outPutToEndUser={
                  'fulfillmentText':'Train Name: ' +trainName+', '+'Tran Number: '+trainNumber
              }
     

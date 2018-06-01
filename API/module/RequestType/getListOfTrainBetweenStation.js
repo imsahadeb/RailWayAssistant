@@ -15,7 +15,7 @@ module.exports.getListofTrainBetweenStation = function(request,passToHandler){
 
     fromRailWayAPI.callTheRailwayApi(URL,function(getResponseFromAPI,err){
         if(err){
-            let outPutToEndUser={
+            var outPutToEndUser={
                 fulfillmentText="Unable to get result from Server. "
             }
            
@@ -27,7 +27,7 @@ module.exports.getListofTrainBetweenStation = function(request,passToHandler){
         let getJsonData = JSON.parse(getResponseFromAPI);
         let trainList = getJsonData.trains;
       //  console.log(getJsonData);
-        let outPutToEndUser= '';
+        var outPutToEndUser= '';
 
         for(i=0;i<trainList.length;i++){
             tarinName= trainList[i].name;

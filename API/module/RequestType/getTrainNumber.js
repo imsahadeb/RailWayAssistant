@@ -23,14 +23,14 @@ module.exports.getTrainNumber = function(request,passToHandler){
             let getJsonData = JSON.parse(getResponseFromApi);
             let trainName = getJsonData.train.name;
             let trainNumber = getJsonData.train.number;
-             let results={
+            var outPutToEndUser={
                  'fulfillmentText':'Train Name: ' +trainName+', '+'Tran Number: '+trainNumber
              }
     
            
 
         }
-        passToHandler(results);
+        passToHandler(outPutToEndUser);
     })
     
 }
