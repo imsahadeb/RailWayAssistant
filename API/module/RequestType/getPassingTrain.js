@@ -16,13 +16,16 @@ module.exports.getPassingTrain = function(request,passToHandler){
     +getDataFromConstantFile.API_KEY_1 + '/';
 
     console.log("URL :" +URL);
-    fromRailWayAPI.callTheRailwayApi(URL,(err,getResponseFromAPI)=>{
+    fromRailWayAPI.callTheRailwayApi(URL,(getResponseFromAPI)=>{
+        var getJsonData = JSON.parse(getResponseFromAPI);
+        var responseCode=getJsonData.response_code;
         var outPutToEndUser='';
-        if(err){
+        if(responseCode!=200){
             outPutToEndUser={
                 fulfillmentText:'Unable to get results from server.'
             }
         }
+        else{
         let getJsonData = JSON.parse(getResponseFromAPI);
         let trainList = getJsonData.trains;
         //  console.log(getJsonData);
@@ -48,7 +51,7 @@ module.exports.getPassingTrain = function(request,passToHandler){
           outPutToEndUser={
             'fulfillmentText':result
           }
-          
+        }
        passToHandler(outPutToEndUser);
     });
 }

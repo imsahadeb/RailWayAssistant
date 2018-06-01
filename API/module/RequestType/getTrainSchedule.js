@@ -12,7 +12,9 @@ module.exports.getTrainSchedule = function(request,passToHandler){
     let URL = getDataFromConstantFile.API_HOST + '/v2/route/train/'
     + TRAIN_NO + '/apikey/'+getDataFromConstantFile.API_KEY_1 + '/';
 
-    fromRailWayAPI.callTheRailwayApi(URL,(err,getResponseFromAPI)=>{
+    fromRailWayAPI.callTheRailwayApi(URL,(getResponseFromAPI)=>{
+        var getJsonData = JSON.parse(getResponseFromAPI);
+        var responseCode=getJsonData.response_code;
         var outPutToEndUser='';
         if(err){
                 outPutToEndUsr={

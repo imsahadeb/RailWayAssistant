@@ -9,7 +9,9 @@ module.exports.getPnrStatus = function getPnrStatus(request,passtoHandler){
     let PNR_NO =parameters.PNR_NO;
     let URL = getDataFromConstantFile.API_HOST + '/v2/pnr-status/pnr/' + PNR_NO + '/apikey/'
      + getDataFromConstantFile.API_KEY_1 + '/';
-     fromRailWayAPI.callTheRailwayApi(URL,(err,getResponseFromAPI)=>{
+     fromRailWayAPI.callTheRailwayApi(URL,(getResponseFromAPI)=>{
+        var getJsonData = JSON.parse(getResponseFromAPI);
+        var responseCode=getJsonData.response_code;
         var outPutToEndUser='';
 
         if(err){
