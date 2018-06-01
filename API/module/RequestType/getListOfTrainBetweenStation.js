@@ -16,7 +16,7 @@ module.exports.getListofTrainBetweenStation = function(request,passToHandler){
     fromRailWayAPI.callTheRailwayApi(URL,function(getResponseFromAPI,err){
         if(err){
             var outPutToEndUser={
-                fulfillmentText="Unable to get result from Server. "
+                fulfillmentText:"Unable to get result from Server. "
             }
            
             

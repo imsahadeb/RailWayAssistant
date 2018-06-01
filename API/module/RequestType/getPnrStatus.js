@@ -13,7 +13,7 @@ module.exports.getPnrStatus = function getPnrStatus(request,passtoHandler){
 
         if(err){
             var outPutToEndUser={
-                fulfillmentText="Unable to get result from Server. "
+                fulfillmentText:"Unable to get result from Server. "
             }
            
             
