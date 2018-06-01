@@ -16,7 +16,7 @@ module.exports.getListofTrainBetweenStation = function(request,passToHandler){
     fromRailWayAPI.callTheRailwayApi(URL,function(getResponseFromAPI,err){
         if(err){
             var outPutToEndUser={
-                fulfillmentText:"Unable to get result from Server. "
+                fulfillmentText:"Unable to get result from Server. "+err
             }
            
             
@@ -24,14 +24,29 @@ module.exports.getListofTrainBetweenStation = function(request,passToHandler){
 
         else{
 
-        let getJsonData = JSON.parse(getResponseFromAPI);
-        let trainList = getJsonData.trains;
+        var getJsonData = JSON.parse(getResponseFromAPI);
+        var trainList = getJsonData.trains;
       //  console.log(getJsonData);
         var outPutToEndUser= '';
 
         for(i=0;i<trainList.length;i++){
             tarinName= trainList[i].name;
-            console.log(tarinName);
+            trainNumber = trainList[i].number;
+            sourceDeptTime = trainList[i].src_departure_time;
+            destArrivalTime = trainList[i].dest_arrival_time;
+            travelTime = trainList[i].travel_time;
+            sourceStation=trainList[i].from_station.name;
+            sourceCode=trainList[i].from_station.code;
+            destStation= trainList[i].to_station.name;
+            destCode = trainList[i].to_station.code;
+            
+            
+            outPutToEndUser={
+                fulfillmentText:'Train Number: '+trainNumber+', '+changeCase.titleCase(tarinName) 
+                + ' departure time from ' +sourceStatin+'('+sourceCode+') is '+sourceDeptTime
+                + ' and it takes total '+travelTime +' to reach the destination staion '+ destStation+'('
+                +destCode+') at '+destArrivalTime
+            }
         }
         }
 
