@@ -16,7 +16,7 @@ module.exports.getFareDetails = function(request,passToHandler){
     +source_stn_code+'/dest/' + DEST_STN_CODE +'/age/20/pref/'+SEAT_CLASS
     +'/quota/GN/date/'+DATE + '/apikey/'+getDataFromConstantFile.API_KEY_1+ '/';
 
-    fromRailWayAPI.callTheRailwayApi(url,(getResponseFromAPI,err)=>{
+    fromRailWayAPI.callTheRailwayApi(url,(err,getResponseFromAPI)=>{
         var outPutToEndUser='';
         if(err){
               outPutToEndUser={

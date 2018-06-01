@@ -11,7 +11,7 @@ module.exports.getLiveTrainStatus= function getLiveTrainStatus(request,passtoHan
     let url = getDataFromConstantFile.API_HOST + '/v2/live/train/'+TRAIN_NO+'/date/'
     +TRAIN_DATE+'/apikey/'+getDataFromConstantFile.API_KEY_1 +'/';
     console.log("Requested Url For Live Train: "+url);
-    fromRailWayAPI.callTheRailwayApi(url,(getResponseFromAPI,err)=>{
+    fromRailWayAPI.callTheRailwayApi(url,(err,getResponseFromAPI)=>{
         var outPutToEndUser='';
         if(err){
             outPutToEndUser={

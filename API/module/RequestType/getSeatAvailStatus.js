@@ -20,7 +20,7 @@ module.exports.getSeatAvailStatus = function(request,passToHandler){
     +SOURCE_STN+'/dest/'+DEST_STN+'/date/'+DATE+'/pref/'+SEAT_CLASS+'/quota/gn/apikey/'
     +getDataFromConstantFile.API_KEY_1+'/';
     var outPutToEndUser='';
-    fromRailWayAPI.callTheRailwayApi(URL,(getResponsefromApi,err)=>{
+    fromRailWayAPI.callTheRailwayApi(URL,(err,getResponseFromAPI)=>{
         var outPutToEndUser='';
         if(err){
             outPutToEndUser={

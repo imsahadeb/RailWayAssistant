@@ -13,7 +13,7 @@ module.exports.getTrainName = function(request,passToHandler){
     let URL = getDataFromConstantFile.API_HOST +'/v2/name-number/train/'+TRAIN_NO
               +'/apikey/'+getDataFromConstantFile.API_KEY_1+'/';
     
-    fromRailWayAPI.callTheRailwayApi(URL,(getResponseFromApi,err)=>{
+    fromRailWayAPI.callTheRailwayApi(URL,(err,getResponseFromAPI)=>{
         var outPutToEndUser='';
         if(err){
              outPutToEndUser={
