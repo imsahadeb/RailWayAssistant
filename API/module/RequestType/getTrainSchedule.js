@@ -33,6 +33,8 @@ module.exports.getTrainSchedule = function(request,passToHandler){
               }
             }
           }
+
+          
           
         var results='';
         if(responseCode!=200){  
@@ -57,7 +59,8 @@ module.exports.getTrainSchedule = function(request,passToHandler){
             }
         }
         console.log('Results: '+results);
-        outPutToEndUser.body.google.richResponse.items[0].simpleResponse.textToSpeech=results;
+        outPutToEndUser.payload.google.expectUserResponse=false;
+        outPutToEndUser.payload.google.richResponse.items[0].simpleResponse.textToSpeech=results;
         console.log('outPutToEndUser: '+outPutToEndUser);
         passToHandler(outPutToEndUser);
     })
