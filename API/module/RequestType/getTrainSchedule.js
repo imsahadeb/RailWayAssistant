@@ -4,6 +4,7 @@ const fromRailWayAPI = require('../../RailwayApiCall/calRailwayApi');
 const getDataFromConstantFile = require('../../../constraints/constant');
 
 
+
 module.exports.getTrainSchedule = function(request,passToHandler){
     let parameters =request.body.queryResult.parameters;
     let TRAIN_NO = parameters.TRAIN_NO;
@@ -33,6 +34,8 @@ module.exports.getTrainSchedule = function(request,passToHandler){
           }
         }
       }
+      var x=getDataFromConstantFile.ResponseFormat;
+      
 
           
           
@@ -58,15 +61,15 @@ module.exports.getTrainSchedule = function(request,passToHandler){
                 +"Arrival Time :" +arrTime + " Departure time: " +depTime+'\n'
                 +'------------------------------------------------'
 
-                +"\n\n\n\n"
+                +"\n\n"
             }
         }
         console.log('Results: '+results);
-        outPutToEndUser.payload.google.expectUserResponse=false;
-        outPutToEndUser.payload.google.richResponse.items[0].simpleResponse.textToSpeech=results;
+        x.payload.google.expectUserResponse=false;
+        x.payload.google.richResponse.items[0].simpleResponse.textToSpeech=results;
         
-        console.log('outPutToEndUser: '+outPutToEndUser);
-        passToHandler(outPutToEndUser);
+        console.log('outPutToEndUser: '+x);
+        passToHandler(x);
     })
 
     

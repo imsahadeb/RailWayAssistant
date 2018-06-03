@@ -28,6 +28,22 @@ module.exports = {
     ////////////////////////////******PARSING PARAMETERS***********///////////////////
 
 
+    ResponseFormat={
+        "payload": {
+          "google": {
+            "expectUserResponse": true,
+            "richResponse": {
+              "items": [
+                {
+                  "simpleResponse": {
+                    "textToSpeech": ''
+                  }
+                }
+              ]
+            }
+          }
+        }
+      }
 
 
 
