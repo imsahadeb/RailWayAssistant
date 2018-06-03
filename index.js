@@ -28,5 +28,7 @@ app.post('/api',(request,res)=>{
   }).listen(process.env.PORT || 80);
   var date = new Date();
   var d = moment(date,'YYYY-DD-MM').format('DD-MM-YYYY');
-  console.log(d);
+  console.log('Date: '+d);
+  console.log('Server: running');
+  console.log('On Port: '+process.env.PORT);
   
