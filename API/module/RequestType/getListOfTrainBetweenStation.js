@@ -36,6 +36,7 @@ module.exports.getListofTrainBetweenStation = function(request,passToHandler){
         //var getJsonData = JSON.parse(getResponseFromAPI);
         console.log('else :'+getJsonData);
         var trainList = getJsonData.trains;
+        console.log('TRains: '+trainList[0].name);
         for(i=0;i<trainList.length;i++){
             tarinName= trainList[i].name;
             trainNumber = trainList[i].number;
