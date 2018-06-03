@@ -54,31 +54,17 @@ module.exports.getTrainSchedule = function(request,passToHandler){
                 haltTime = route[i].halt;
                 distFromSource = route[i].distance;
     
-                results+="Station: " +stationName + " Distance :"+distFromSource+"\n" 
-                      +"Arrival Time :" +arrTime+ " Departure time: " +depTime+"\n\n"
+                results+="Station: " +stationName +'\n\n'
+                       " Distance :"+distFromSource+"\n\n" 
+                       +"Arrival Time :" +arrTime +'\n\n'
+                       + " Departure time: " +depTime+"\n\n"
             }
         }
         console.log('Results: '+results);
         outPutToEndUser.payload.google.expectUserResponse=false;
         outPutToEndUser.payload.google.richResponse.items[0].simpleResponse.textToSpeech=results;
+        
         console.log('outPutToEndUser: '+outPutToEndUser);
-        // outPutToEndUser={
-        //     "payload": {
-        //       "google": {
-        //         "expectUserResponse": true,
-        //         "richResponse": {
-        //           "items": [
-        //             {
-        //               "simpleResponse": {
-        //                 "textToSpeech": "this is a simple response"
-        //               }
-        //             }
-        //           ]
-        //         }
-        //       }
-        //     }
-        //   }
-
         passToHandler(outPutToEndUser);
     })
 
