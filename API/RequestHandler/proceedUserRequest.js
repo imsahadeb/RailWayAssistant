@@ -56,8 +56,7 @@ function (request,passtoHandler){
     if(intent==getDataFromConstantFile.FIND_TRAIN_BTWN_STN_INTENT){
         fromTBS.getListofTrainBetweenStation(request,passtoHandler);
     }
-    if((intent==getDataFromConstantFile.TRAIN_PASSING_THROUGH_STN_INTENT) ||
-    (intent==getDataFromConstantFile.TRAIN_PASSING_THROUGH_STN_INTENT_ANY))
+    if(intent==getDataFromConstantFile.TRAIN_PASSING_THROUGH_STN_INTENT_ANY)
     {
         fromPassingTrain.getPassingTrain(request,passtoHandler);
     }
