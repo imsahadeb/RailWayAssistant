@@ -66,19 +66,19 @@ module.exports.getListofTrainBetweenStation = function(request,passToHandler){
 }
 
 
-var results={
-    "payload": {
-      "google": {
-        "expectUserResponse": true,
-        "richResponse": {
-          "items": [
-            {
-              "simpleResponse": {
-                "textToSpeech": "this is a simple response"
-              }
-            }
-          ]
-        }
-      }
-    }
-  }
+// var results={
+//     "payload": {
+//       "google": {
+//         "expectUserResponse": true,
+//         "richResponse": {
+//           "items": [
+//             {
+//               "simpleResponse": {
+//                 "textToSpeech": "this is a simple response"
+//               }
+//             }
+//           ]
+//         }
+//       }
+//     }
+//   }

@@ -15,6 +15,7 @@ module.exports.getTrainSchedule = function(request,passToHandler){
     fromRailWayAPI.callTheRailwayApi(URL,(getResponseFromAPI)=>{
         var getJsonData = JSON.parse(getResponseFromAPI);
         var responseCode=getJsonData.response_code;
+        console.log('Response Code: '+responseCode);
       //  var outPutToEndUser='';
         var outPutToEndUser='';
         var results='';
@@ -39,6 +40,7 @@ module.exports.getTrainSchedule = function(request,passToHandler){
                 results += "Arrival Time :" +arrTime+ " Departure time: " +depTime+"\n\n"
             }
         }
+        console.log('Results: '+results);
         outPutToEndUser={
             fulfillmentText:results
         }
