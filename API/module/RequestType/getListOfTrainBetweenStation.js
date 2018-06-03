@@ -25,6 +25,7 @@ module.exports.getListofTrainBetweenStation = function(request,passToHandler){
         var getJsonData = JSON.parse(getResponseFromAPI);
         console.log('Result: '+getJsonData);
         var responseCode=getJsonData.response_code;
+        console.log('Status Code: ' +responseCode);
         var outPutToEndUser='';
         if(responseCode!=200){
              outPutToEndUser={
