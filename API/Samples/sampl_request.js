@@ -63,4 +63,4 @@ var body={
     }
   }
 
- console.log(body.queryResult.outputContexts[0].parameters.STATION_CODE)
+ console.log(body.queryResult.outputContexts[0].parameters)

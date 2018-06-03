@@ -8,13 +8,14 @@ const getDataFromConstantFile = require('../../../constraints/constant');
 module.exports.getPassingTrain = function(request,passToHandler){
     console.log("calling getPassingTrain()");
     let parameters =request.body.queryResult.parameters;
-    let outPutContextParameters=request.body.queryResult.outputContexts[0].parameters;
-    let STATION_CODE = parameters.STATION_CODE;
+    var outPutContextParameters=request.body.queryResult.outputContexts[0].parameters;
+    console.log(outPutContextParameters);
+    var STATION_CODE = parameters.STATION_CODE;
     if(STATION_CODE=='undefined'){
         STATION_CODE=outPutContextParameters.STATION_CODE
     }
     console.log("station: "+ STATION_CODE);
-    let TIME_WINDOW = parameters.TIME_WINDOW.amount;
+    var TIME_WINDOW = parameters.TIME_WINDOW.amount;
     if(TIME_WINDOW=='undefined'){
         TIME_WINDOW=outPutContextParameters.TIME_WINDOW.amount;
     }
