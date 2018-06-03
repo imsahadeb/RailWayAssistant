@@ -32,7 +32,7 @@ function (request,passtoHandler){
      // sendDefaultResponse(request,passtoHandler);
     }
     if(intent==getDataFromConstantFile.DEFAULT_INTENT){
-        sendDefaultResponse(request,passtoHandler);
+       // sendDefaultResponse(request,passtoHandler);
     }
     if(intent==getDataFromConstantFile.PNR_STATUS_INTENT){
         fromPNR.getPnrStatus(request,passtoHandler);
