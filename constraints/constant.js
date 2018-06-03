@@ -21,7 +21,7 @@ module.exports = {
     ////////////////////////////////*****API INORMATION*****\\\\\\\\\\\\\\\\\\\\\\\\\\\\
     API_HOST:'https://api.railwayapi.com',
     API_KEY_2:"q86si59pft",
-    API_KEY_1:'ye1rpmx0tk',
+    API_KEY_1:'0og4a2g5ij',
     API_KEY_3:'',
     //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
