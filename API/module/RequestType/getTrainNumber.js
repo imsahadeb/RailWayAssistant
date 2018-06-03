@@ -17,7 +17,7 @@ module.exports.getTrainNumber = function(request,passToHandler){
         var outPutToEndUser='';
         if(responseCode!=200){
             outPutToEndUser={
-                fulfillmentText:'unable to get results from server.'
+                fulfillmentText:'unable to get results from Server. Please try again later.'
             }
            // passToHandler(outPutToEndUser);
         }

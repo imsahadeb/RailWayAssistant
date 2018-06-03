@@ -26,7 +26,7 @@ module.exports.getSeatAvailStatus = function(request,passToHandler){
         var outPutToEndUser='';
         if(responseCode!=200){
             outPutToEndUser={
-                fulfillmentText: 'Uable to get results from server'
+                fulfillmentText: 'Uable to get results from Server. Please try again later.'
             }
          //   passToHandler(outPutToEndUser);
         }

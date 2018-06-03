@@ -16,7 +16,7 @@ module.exports.getPnrStatus = function getPnrStatus(request,passtoHandler){
 
         if(responseCode!=200){
              outPutToEndUser={
-                fulfillmentText:"Unable to get result from Server. "
+                fulfillmentText:"Unable to get result from Server. Please try again later. "
             }
            
             

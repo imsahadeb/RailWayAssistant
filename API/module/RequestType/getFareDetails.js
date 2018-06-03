@@ -22,7 +22,7 @@ module.exports.getFareDetails = function(request,passToHandler){
         var outPutToEndUser='';
         if(err){
               outPutToEndUser={
-                fulfillmentText:"Unable to get result from Server. "
+                fulfillmentText:"Unable to get result from Server. Please try again later. "
             }
            
           //  passToHandler(outPutToEndUser);

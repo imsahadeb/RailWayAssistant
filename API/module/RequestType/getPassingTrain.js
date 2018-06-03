@@ -10,7 +10,7 @@ module.exports.getPassingTrain = function(request,passToHandler){
     let parameters =request.body.queryResult.parameters;
     let STATION_CODE = parameters.STATION_CODE;
     console.log("station: "+ STATION_CODE);
-    let TIME_WINDOW = parameters.TIME_WINDOW;
+    let TIME_WINDOW = parameters.TIME_WINDOW.amount;
     let URL = getDataFromConstantFile.API_HOST + '/v2/arrivals/'
     +'station/'+ STATION_CODE + '/hours/'+TIME_WINDOW+'/apikey/'
     +getDataFromConstantFile.API_KEY_1 + '/';
@@ -22,7 +22,7 @@ module.exports.getPassingTrain = function(request,passToHandler){
         var outPutToEndUser='';
         if(responseCode!=200){
             outPutToEndUser={
-                fulfillmentText:'Unable to get results from server.'
+                fulfillmentText:'Unable to get results from Server. Please try again later.'
             }
         }
         else{

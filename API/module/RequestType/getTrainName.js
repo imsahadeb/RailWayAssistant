@@ -19,7 +19,7 @@ module.exports.getTrainName = function(request,passToHandler){
         var outPutToEndUser='';
         if(responseCode!=200){
              outPutToEndUser={
-                fulfillmentText:'Unable to get results from server. '
+                fulfillmentText:'Unable to get results from Server. Please try again later. '
             }
            // passToHandler(outPutToEndUser);
         }

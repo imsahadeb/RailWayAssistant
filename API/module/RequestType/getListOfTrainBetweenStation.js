@@ -23,18 +23,18 @@ module.exports.getListofTrainBetweenStation = function(request,passToHandler){
 
     fromRailWayAPI.callTheRailwayApi(URL,(getResponseFromAPI)=>{
         var getJsonData = JSON.parse(getResponseFromAPI);
+        console.log('Result: '+getJsonData);
         var responseCode=getJsonData.response_code;
         var outPutToEndUser='';
         if(responseCode!=200){
              outPutToEndUser={
-                fulfillmentText:"Unable to get result from Server. "+err
+                fulfillmentText:"Unable to get result from Server. Please try again later. "+err
             }
-           
-            
         }
 
         else{
         //var getJsonData = JSON.parse(getResponseFromAPI);
+        console.log('else :'+getJsonData);
         var trainList = getJsonData.trains;
         for(i=0;i<trainList.length;i++){
             tarinName= trainList[i].name;
@@ -61,3 +61,21 @@ module.exports.getListofTrainBetweenStation = function(request,passToHandler){
         passToHandler(outPutToEndUser);
     });
 }
+
+
+var results={
+    "payload": {
+      "google": {
+        "expectUserResponse": true,
+        "richResponse": {
+          "items": [
+            {
+              "simpleResponse": {
+                "textToSpeech": "this is a simple response"
+              }
+            }
+          ]
+        }
+      }
+    }
+  }
