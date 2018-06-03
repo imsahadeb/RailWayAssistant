@@ -17,35 +17,13 @@ module.exports.getTrainSchedule = function(request,passToHandler){
         var getJsonData = JSON.parse(getResponseFromAPI);
         var responseCode=getJsonData.response_code;
         console.log('Response Code: '+responseCode);
-       // var outPutToEndUser='';
-      var outPutToEndUser={
-        "payload": {
-          "google": {
-            "expectUserResponse": true,
-            "richResponse": {
-              "items": [
-                {
-                  "simpleResponse": {
-                    "textToSpeech": ''
-                  }
-                }
-              ]
-            }
-          }
-        }
-      }
-      var x=getDataFromConstantFile.ResponseFormat;
-      
-
-        
-          
+        var outPutToEndUser=getDataFromConstantFile.ResponseFormat;  
         var results='';
         if(responseCode!=200){  
                 results='Unable to get results from Server. Please try again later.'    
         }
 
         else{
-       
             tarinName=getJsonData.train.name;
             trainNo = getJsonData.train.number;
             route= getJsonData.route
@@ -58,18 +36,14 @@ module.exports.getTrainSchedule = function(request,passToHandler){
                 distFromSource = route[i].distance;
     
                 results+='\n'+"Station: " +stationName +" Distance :"+distFromSource+'km'+'\n'
-                +"Arrival Time :" +arrTime + " Departure time: " +depTime+'\n'
-                +'------------------------------------------------'
-
+                +"Arrival Time :" +arrTime + " Departure time: " +depTime
                 +"\n\n"
             }
         }
         console.log('Results: '+results);
-        x.payload.google.expectUserResponse=false;
-        x.payload.google.richResponse.items[0].simpleResponse.textToSpeech=results;
-        
-        console.log('outPutToEndUser: '+x);
-        passToHandler(x);
+        outPutToEndUser.payload.google.expectUserResponse=false;
+        outPutToEndUser.payload.google.richResponse.items[0].simpleResponse.textToSpeech=results;
+        passToHandler(outPutToEndUser);
     })
 
     
