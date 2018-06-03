@@ -17,7 +17,23 @@ module.exports.getTrainSchedule = function(request,passToHandler){
         var responseCode=getJsonData.response_code;
         console.log('Response Code: '+responseCode);
       //  var outPutToEndUser='';
-        var outPutToEndUser='';
+        var outPutToEndUser={
+            "payload": {
+              "google": {
+                "expectUserResponse": true,
+                "richResponse": {
+                  "items": [
+                    {
+                      "simpleResponse": {
+                        "textToSpeech": ''
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
+          
         var results='';
         if(responseCode!=200){  
                 results='Unable to get results from Server. Please try again later.'    
@@ -41,9 +57,7 @@ module.exports.getTrainSchedule = function(request,passToHandler){
             }
         }
         console.log('Results: '+results);
-        outPutToEndUser={
-            'fulfillmentText':results
-        }
+        outPutToEndUser.body.google.richResponse.items[0].simpleResponse.textToSpeech=results;
         console.log('outPutToEndUser: '+outPutToEndUser);
         passToHandler(outPutToEndUser);
     })
