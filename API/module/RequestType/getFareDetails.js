@@ -20,21 +20,19 @@ module.exports.getFareDetails = function(request,passToHandler){
         var getJsonData = JSON.parse(getResponseFromAPI);
         responseCode=getJsonData.response_code;
         var outPutToEndUser='';
-        if(err){
-              outPutToEndUser={
-                fulfillmentText:"Unable to get result from Server. Please try again later. "
-            }
-           
-          //  passToHandler(outPutToEndUser);
+        var results='';
+        if(responseCode!=200){
+              results="Unable to get result from Server. Please try again later. "
         }
 
         else{
-            let getJsonData = JSON.parse(getResponseFromAPI);
-              outPutToEndUser = {
-               // 'fulfillmentText':
-            }
+          //  let getJsonData = JSON.parse(getResponseFromAPI);
+            results=''
            
         }
+        outPutToEndUser = {
+             'fulfillmentText':''
+         }
         passtoHandler(outPutToEndUser);
     });
 

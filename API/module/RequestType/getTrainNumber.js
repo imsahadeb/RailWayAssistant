@@ -15,24 +15,24 @@ module.exports.getTrainNumber = function(request,passToHandler){
         var getJsonData = JSON.parse(getResponseFromAPI);
         var responseCode=getJsonData.response_code;
         var outPutToEndUser='';
-        if(responseCode!=200){
-            outPutToEndUser={
-                fulfillmentText:'unable to get results from Server. Please try again later.'
-            }
-           // passToHandler(outPutToEndUser);
+        var outPutToEndUser='';
+        var results='';
+        if(responseCode!=200){  
+                results='Unable to get results from Server. Please try again later.'    
         }
 
         else{
-            let getJsonData = JSON.parse(getResponseFromApi);
+          //  let getJsonData = JSON.parse(getResponseFromApi);
             let trainName = getJsonData.train.name;
             let trainNumber = getJsonData.train.number;
-              outPutToEndUser={
-                 'fulfillmentText':'Train Name: ' +trainName+', '+'Tran Number: '+trainNumber
-             }
-    
-           
-
-        }
+            //   outPutToEndUser={
+            //      'fulfillmentText':'Train Name: ' +trainName+', '+'Tran Number: '+trainNumber
+            //  }
+            results='Train Name: ' +trainName+', '+'Tran Number: '+trainNumber
+       }
+       outPutToEndUser={
+           fulfillmentText:results
+       }
         passToHandler(outPutToEndUser);
     })
     

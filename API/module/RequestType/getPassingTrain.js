@@ -20,17 +20,16 @@ module.exports.getPassingTrain = function(request,passToHandler){
         var getJsonData = JSON.parse(getResponseFromAPI);
         var responseCode=getJsonData.response_code;
         var outPutToEndUser='';
-        if(responseCode!=200){
-            outPutToEndUser={
-                fulfillmentText:'Unable to get results from Server. Please try again later.'
-            }
+        var results='';
+        if(responseCode!=200){  
+                results='Unable to get results from Server. Please try again later.'    
         }
         else{
-        let getJsonData = JSON.parse(getResponseFromAPI);
+       // let getJsonData = JSON.parse(getResponseFromAPI);
         let trainList = getJsonData.trains;
         //  console.log(getJsonData);
           var outPutToEndUser= '';
-          let result='';
+         
           for(i=0;i<trainList.length;i++){
               tarinName= trainList[i].name;
               trainNumbr= trainList[i].number;
@@ -42,16 +41,15 @@ module.exports.getPassingTrain = function(request,passToHandler){
               if(currently=='RIGHT TIME'){
                   currently = 'and it on Right Time';
               }
-              result+=' Train Number: ' +trainNumbr+', '+ tarinName
+              results+=' Train Number: ' +trainNumbr+', '+ tarinName
 
                     +' Schedule Arival Time ' +schArrTime+', ' + currently +
                     '';
          }
-         console.log(result);
-          outPutToEndUser={
-            'fulfillmentText':result
-          }
         }
+        outPutToEndUser={
+            'fulfillmentText':results
+          }
        passToHandler(outPutToEndUser);
     });
 }

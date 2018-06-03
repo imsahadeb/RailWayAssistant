@@ -24,17 +24,12 @@ module.exports.getSeatAvailStatus = function(request,passToHandler){
         var getJsonData = JSON.parse(getResponseFromAPI);
         var responseCode=getJsonData.response_code;
         var outPutToEndUser='';
-        if(responseCode!=200){
-            outPutToEndUser={
-                fulfillmentText: 'Uable to get results from Server. Please try again later.'
-            }
-         //   passToHandler(outPutToEndUser);
+        var results='';
+        if(responseCode!=200){  
+                results='Unable to get results from Server. Please try again later.'    
         }
 
         else{
-
-
-        let getJsonData = JSON.parse(getResponsefromApi);
         trainName = getJsonData.train.name;
         trainNumber = getJsonData.train.number;
         journeyClass =getJsonData.journey_class.name;
@@ -45,17 +40,15 @@ module.exports.getSeatAvailStatus = function(request,passToHandler){
         currentStatus = getJsonData.availability[0].status;
 
         
-        var results = "In Train Number :"+trainNumber+', '+trainName
+        results = "In Train Number :"+trainNumber+', '+trainName
                       +'Journey from '+fromStation+ ' to ' + toStation
                       +' on class '+ journeyClass+ ' as on the date of '
                       + jourenyDate + ' current seat status: '+currentStatus;
    
-                     console.log(results);
-                     outPutToEndUser={
-                         'fulfillmentText':results
-                     }
-                     
-
+                 //    console.log(results);
+        }
+        outPutToEndUser={
+            'fulfillmentText':results
         }
         passToHandler(outPutToEndUser);
         

@@ -13,17 +13,13 @@ module.exports.getPnrStatus = function getPnrStatus(request,passtoHandler){
         var getJsonData = JSON.parse(getResponseFromAPI);
         var responseCode=getJsonData.response_code;
         var outPutToEndUser='';
-
-        if(responseCode!=200){
-             outPutToEndUser={
-                fulfillmentText:"Unable to get result from Server. Please try again later. "
-            }
-           
-            
+        var results='';
+        if(responseCode!=200){  
+                results='Unable to get results from Server. Please try again later.'    
         }
 
         else{
-            let getJsonData = JSON.parse(getResponseFromAPI);
+           // let getJsonData = JSON.parse(getResponseFromAPI);
             trainName=getJsonData.train.name;
             trainNumber=getJsonData.train.number;
             pnrNumber=getJsonData.pnr;
@@ -43,18 +39,16 @@ module.exports.getPnrStatus = function getPnrStatus(request,passtoHandler){
             }
             totalPassemger= getJsonData.total_passengers;
     
-             outPutToEndUser={
-            fulfillmentText:"TRAIN: "+trainNumber+","+trainName+", PNR Number: "+pnrNumber
+            
+            results="TRAIN: "+trainNumber+","+trainName+", PNR Number: "+pnrNumber
                             +", Resarvation From: "+fromStation+" to Resarvation upto: "+toStation
                             +", Boarding Staton: "+boardinPoint+ " ,DOJ: "+dateOfJourney
                             +", Number of Person: "+totalPassemger
                             +", Booking Status: "+pnrBookingStatus+", Current Status: "+pnrCurrentStatus
                             +", Chart Status: "+chart
         }
-    
-    
-       
-
+        outPutToEndUser={
+            fulfillmentText:results
         }
         passtoHandler(outPutToEndUser);
     })

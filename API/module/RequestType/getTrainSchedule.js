@@ -15,20 +15,19 @@ module.exports.getTrainSchedule = function(request,passToHandler){
     fromRailWayAPI.callTheRailwayApi(URL,(getResponseFromAPI)=>{
         var getJsonData = JSON.parse(getResponseFromAPI);
         var responseCode=getJsonData.response_code;
+      //  var outPutToEndUser='';
         var outPutToEndUser='';
-        if(responseCode!=200){
-                outPutToEndUsr={
-                fulfillmentText:'Unable to get results from Server. Please try again later.'
-            }
-           // passToHandler(outPutToEndUsr);
+        var results='';
+        if(responseCode!=200){  
+                results='Unable to get results from Server. Please try again later.'    
         }
 
         else{
-            let getJsonData = JSON.parse(getResponseFromApi);
+         //   let getJsonData = JSON.parse(getResponseFromApi);
             tarinName=getJsonData.train.name;
             trainNo = getJsonData.train.number;
             route= getJsonData.route
-            results ='';
+           
             for(i=0;i<route.length;i++){
                 stationName = route[i].station.name;
                 arrTime = route[i].scharr;
@@ -41,11 +40,14 @@ module.exports.getTrainSchedule = function(request,passToHandler){
             }
             console.log(results)
     
-               outPutToEndUsr= {
-               'fulfillmentText':results
-           }
+        //        outPutToEndUsr= {
+        //        'fulfillmentText':results
+        //    }
           
 
+        }
+        outPutToEndUser={
+            fulfillmentText:results
         }
         passToHandler(outPutToEndUsr);
     })

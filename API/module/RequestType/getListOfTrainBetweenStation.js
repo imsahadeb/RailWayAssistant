@@ -28,10 +28,8 @@ module.exports.getListofTrainBetweenStation = function(request,passToHandler){
         console.log('Status Code: ' +responseCode);
         var outPutToEndUser='';
         var results='';
-        if(responseCode!=200){
-             
-                results="Unable to get result from Server. Please try again later. "+err
-            
+        if(responseCode!=200){  
+                results='Unable to get results from Server. Please try again later.'    
         }
 
         else{

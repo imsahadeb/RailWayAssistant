@@ -14,24 +14,21 @@ module.exports.getLiveTrainStatus= function getLiveTrainStatus(request,passtoHan
     fromRailWayAPI.callTheRailwayApi(url,(getResponseFromAPI)=>{
         var getJsonData = JSON.parse(getResponseFromAPI);
         var responseCode=getJsonData.response_code;
+       // var outPutToEndUser='';
         var outPutToEndUser='';
-        if(responseCode!=200){
-            outPutToEndUser={
-                fulfillmentText:'Unable to get results from Server. Please try again later.'
-            }
-           // passtoHandler(outPutToEndUser);
+        var results='';
+        if(responseCode!=200){  
+                results='Unable to get results from Server. Please try again later.'    
         }
 
         else{
-        let getJsonData =JSON.parse(getResponseFromAPI);
-         outPutToEndUser = {
-            'fulfillmentText' : 'The train number ' +TRAIN_NO+ ', '
+      //  let getJsonData =JSON.parse(getResponseFromAPI);
+         results ='The train number ' +TRAIN_NO+ ', '
             + changeCase.titleCase(getJsonData.train.name) 
             + ' and the ' + changeCase.titleCase(getJsonData.position)
         }
-
-      
-            
+        outPutToEndUser={
+            fulfillmentText:results
         }
         passtoHandler(outPutToEndUser);
     })
