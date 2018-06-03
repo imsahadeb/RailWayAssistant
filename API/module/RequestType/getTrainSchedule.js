@@ -16,23 +16,23 @@ module.exports.getTrainSchedule = function(request,passToHandler){
         var getJsonData = JSON.parse(getResponseFromAPI);
         var responseCode=getJsonData.response_code;
         console.log('Response Code: '+responseCode);
-      //  var outPutToEndUser='';
-        var outPutToEndUser={
-            "payload": {
-              "google": {
-                "expectUserResponse": true,
-                "richResponse": {
-                  "items": [
-                    {
-                      "simpleResponse": {
-                        "textToSpeech": ''
-                      }
-                    }
-                  ]
-                }
-              }
-            }
-          }
+        var outPutToEndUser='';
+    //   var outPutToEndUser={
+    //     "payload": {
+    //       "google": {
+    //         "expectUserResponse": true,
+    //         "richResponse": {
+    //           "items": [
+    //             {
+    //               "simpleResponse": {
+    //                 "textToSpeech": ''
+    //               }
+    //             }
+    //           ]
+    //         }
+    //       }
+    //     }
+    //   }
 
           
           
@@ -59,9 +59,25 @@ module.exports.getTrainSchedule = function(request,passToHandler){
             }
         }
         console.log('Results: '+results);
-        outPutToEndUser.payload.google.expectUserResponse=false;
-        outPutToEndUser.payload.google.richResponse.items[0].simpleResponse.textToSpeech=results;
+      //  outPutToEndUser.payload.google.expectUserResponse=false;
+      //  outPutToEndUser.payload.google.richResponse.items[0].simpleResponse.textToSpeech=results;
         console.log('outPutToEndUser: '+outPutToEndUser);
+        outPutToEndUser={
+            "payload": {
+              "google": {
+                "expectUserResponse": true,
+                "richResponse": {
+                  "items": [
+                    {
+                      "simpleResponse": {
+                        "textToSpeech": "this is a simple response"
+                      }
+                    }
+                  ]
+                }
+              }
+            }
+          }
         passToHandler(outPutToEndUser);
     })
 
