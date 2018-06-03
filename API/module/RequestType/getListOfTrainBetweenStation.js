@@ -58,7 +58,7 @@ module.exports.getListofTrainBetweenStation = function(request,passToHandler){
             }
         }
     }
-        
+        console.log('outPutToEndUser: '+outPutToEndUser);
 
         passToHandler(outPutToEndUser);
     });
