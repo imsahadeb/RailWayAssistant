@@ -54,8 +54,8 @@ module.exports.getTrainSchedule = function(request,passToHandler){
                 haltTime = route[i].halt;
                 distFromSource = route[i].distance;
     
-                results+="Station: " +stationName +" Distance :"+distFromSource+'\n'
-                +"Arrival Time :" +arrTime + " Departure time: " +depTime+"\n\n\n"
+                results+='\n'+"Station: " +stationName +" Distance :"+distFromSource+'km'+'\n'
+                +"Arrival Time :" +arrTime + " Departure time: " +depTime+"\n\n\n\n"
             }
         }
         console.log('Results: '+results);
