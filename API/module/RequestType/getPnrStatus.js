@@ -46,6 +46,7 @@ module.exports.getPnrStatus = function getPnrStatus(request,passtoHandler){
                             +", Number of Person: "+totalPassemger
                             +", Booking Status: "+pnrBookingStatus+", Current Status: "+pnrCurrentStatus
                             +", Chart Status: "+chart
+                            +'\n\n'
         }
         outPutToEndUser={
             fulfillmentText:results

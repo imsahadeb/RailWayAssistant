@@ -26,7 +26,7 @@ module.exports.getListofTrainBetweenStation = function(request,passToHandler){
         console.log('Result: '+getJsonData);
         var responseCode=getJsonData.response_code;
         console.log('Status Code: ' +responseCode);
-        var outPutToEndUser='';
+        var outPutToEndUser=getDataFromConstantFile.ResponseFormat;
         var results='';
         if(responseCode!=200){  
                 results='Unable to get results from Server. Please try again later.'    
@@ -56,10 +56,8 @@ module.exports.getListofTrainBetweenStation = function(request,passToHandler){
                 +destCode+') at '+destArrivalTime
         }
     }
-       // console.log('outPutToEndUser: '+outPutToEndUser);
-       outPutToEndUser={
-           fulfillmentText:results
-       }
+      outPutToEndUser.payload.google.expectUserResponse=false;
+      outPutToEndUser.payload.google.richResponse.items[0].simpleResponse.textToSpeech=results;
 
         passToHandler(outPutToEndUser);
     });
