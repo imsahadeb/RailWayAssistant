@@ -45,7 +45,7 @@ module.exports.getTrainSchedule = function(request,passToHandler){
             'fulfillmentText':results
         }
         console.log('outPutToEndUser: '+outPutToEndUser);
-        passToHandler(outPutToEndUsr);
+        passToHandler(outPutToEndUser);
     })
 
     
