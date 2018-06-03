@@ -27,10 +27,11 @@ module.exports.getListofTrainBetweenStation = function(request,passToHandler){
         var responseCode=getJsonData.response_code;
         console.log('Status Code: ' +responseCode);
         var outPutToEndUser='';
+        var results='';
         if(responseCode!=200){
-             outPutToEndUser={
-                fulfillmentText:"Unable to get result from Server. Please try again later. "+err
-            }
+             
+                results="Unable to get result from Server. Please try again later. "+err
+            
         }
 
         else{
@@ -50,15 +51,17 @@ module.exports.getListofTrainBetweenStation = function(request,passToHandler){
             destCode = trainList[i].to_station.code;
             
             
-            outPutToEndUser+={
-                fulfillmentText:'Train Number: '+trainNumber+', '+changeCase.titleCase(tarinName) 
+            
+              results+='Train Number: '+trainNumber+', '+changeCase.titleCase(tarinName) 
                 + ' departure time from ' +sourceStation+'('+sourceCode+') is '+sourceDeptTime
                 + ' and it takes total '+travelTime +' to reach the destination staion '+ destStation+'('
                 +destCode+') at '+destArrivalTime
-            }
         }
     }
-        console.log('outPutToEndUser: '+outPutToEndUser);
+       // console.log('outPutToEndUser: '+outPutToEndUser);
+       outPutToEndUser={
+           fulfillmentText:results
+       }
 
         passToHandler(outPutToEndUser);
     });
