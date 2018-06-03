@@ -23,7 +23,7 @@ module.exports.getTrainSchedule = function(request,passToHandler){
         }
 
         else{
-         //   let getJsonData = JSON.parse(getResponseFromApi);
+       
             tarinName=getJsonData.train.name;
             trainNo = getJsonData.train.number;
             route= getJsonData.route
@@ -38,13 +38,6 @@ module.exports.getTrainSchedule = function(request,passToHandler){
                 results+="Station: " +stationName + " Distance :"+distFromSource+"\n";
                 results += "Arrival Time :" +arrTime+ " Departure time: " +depTime+"\n\n"
             }
-            console.log(results)
-    
-        //        outPutToEndUsr= {
-        //        'fulfillmentText':results
-        //    }
-          
-
         }
         outPutToEndUser={
             fulfillmentText:results
