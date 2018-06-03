@@ -33,11 +33,7 @@ module.exports.getPassingTrain = function(request,passToHandler){
                 results='Unable to get results from Server. Please try again later.'    
         }
         else{
-       // let getJsonData = JSON.parse(getResponseFromAPI);
         let trainList = getJsonData.trains;
-        //  console.log(getJsonData);
-          var outPutToEndUser= '';
-         
           for(i=0;i<trainList.length;i++){
               tarinName= trainList[i].name;
               trainNumbr= trainList[i].number;
