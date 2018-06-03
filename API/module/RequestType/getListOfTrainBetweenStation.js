@@ -34,7 +34,7 @@ module.exports.getListofTrainBetweenStation = function(request,passToHandler){
         }
 
         else{
-        var getJsonData = JSON.parse(getResponseFromAPI);
+        //var getJsonData = JSON.parse(getResponseFromAPI);
         var trainList = getJsonData.trains;
         for(i=0;i<trainList.length;i++){
             tarinName= trainList[i].name;
