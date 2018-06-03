@@ -28,7 +28,7 @@ module.exports = {
     ////////////////////////////******PARSING PARAMETERS***********///////////////////
 
 
-    ResponseFormat={
+    ResponseFormat:{
         "payload": {
           "google": {
             "expectUserResponse": true,

@@ -37,7 +37,7 @@ module.exports.getTrainSchedule = function(request,passToHandler){
       var x=getDataFromConstantFile.ResponseFormat;
       
 
-          
+        
           
         var results='';
         if(responseCode!=200){  
