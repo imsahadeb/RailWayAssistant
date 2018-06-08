@@ -39,6 +39,20 @@ module.exports = {
                     "textToSpeech": ''
                   }
                 }
+              ],
+              "suggestions": [
+                {
+                  "title": "PNR Status"
+                },
+                {
+                  "title": "Live Station"
+                },
+                {
+                  "title": "Live Train Status"
+                },
+                {
+                  "title":"Check Ticket"
+                }
               ]
             }
           }

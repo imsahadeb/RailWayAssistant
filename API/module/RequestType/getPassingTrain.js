@@ -50,7 +50,7 @@ module.exports.getPassingTrain = function(request,passToHandler){
                         '\n\n';
          }
         }
-        outPutToEndUser.payload.google.expectUserResponse=false;
+       //1 outPutToEndUser.payload.google.expectUserResponse=false;
         outPutToEndUser.payload.google.richResponse.items[0].simpleResponse.textToSpeech=results;
         passToHandler(outPutToEndUser);
     });
