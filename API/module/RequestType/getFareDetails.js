@@ -19,7 +19,7 @@ module.exports.getFareDetails = function(request,passToHandler){
     fromRailWayAPI.callTheRailwayApi(url,(getResponseFromAPI)=>{
         var getJsonData = JSON.parse(getResponseFromAPI);
         responseCode=getJsonData.response_code;
-        var outPutToEndUser='';
+        var outPutToEndUser=getDataFromConstantFile.ResponseFormat;
         var results='';
         if(responseCode!=200){
               results="Unable to get result from Server. Please try again later. "
@@ -27,12 +27,10 @@ module.exports.getFareDetails = function(request,passToHandler){
 
         else{
           //  let getJsonData = JSON.parse(getResponseFromAPI);
-            results=''
+            results='Getting Results from the server, please wait......'
            
         }
-        outPutToEndUser = {
-             'fulfillmentText':''
-         }
+        outPutToEndUser.payload.google.richResponse.items[0].simpleResponse.textToSpeech=results;
         passtoHandler(outPutToEndUser);
     });
 

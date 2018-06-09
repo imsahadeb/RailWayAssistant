@@ -56,7 +56,7 @@ module.exports.getListofTrainBetweenStation = function(request,passToHandler){
                 +destCode+') at '+destArrivalTime
         }
     }
-      outPutToEndUser.payload.google.expectUserResponse=false;
+     // outPutToEndUser.payload.google.expectUserResponse=false;
       outPutToEndUser.payload.google.richResponse.items[0].simpleResponse.textToSpeech=results;
 
         passToHandler(outPutToEndUser);

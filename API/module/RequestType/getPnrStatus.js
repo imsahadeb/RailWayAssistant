@@ -12,7 +12,7 @@ module.exports.getPnrStatus = function getPnrStatus(request,passtoHandler){
      fromRailWayAPI.callTheRailwayApi(URL,(getResponseFromAPI)=>{
         var getJsonData = JSON.parse(getResponseFromAPI);
         var responseCode=getJsonData.response_code;
-        var outPutToEndUser='';
+        var outPutToEndUser=getDataFromConstantFile.ResponseFormat;
         var results='';
         if(responseCode!=200){  
                 results='Unable to get results from Server. Please try again later.'    
@@ -48,9 +48,7 @@ module.exports.getPnrStatus = function getPnrStatus(request,passtoHandler){
                             +", Chart Status: "+chart
                             +'\n\n'
         }
-        outPutToEndUser={
-            fulfillmentText:results
-        }
+        outPutToEndUser.payload.google.richResponse.items[0].simpleResponse.textToSpeech=results;
         passtoHandler(outPutToEndUser);
     })
       

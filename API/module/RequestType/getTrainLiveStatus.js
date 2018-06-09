@@ -15,7 +15,7 @@ module.exports.getLiveTrainStatus= function getLiveTrainStatus(request,passtoHan
         var getJsonData = JSON.parse(getResponseFromAPI);
         var responseCode=getJsonData.response_code;
        // var outPutToEndUser='';
-        var outPutToEndUser='';
+        var outPutToEndUser=getDataFromConstantFile.ResponseFormat;
         var results='';
         if(responseCode!=200){  
                 results='Unable to get results from Server. Please try again later.'    
@@ -27,9 +27,7 @@ module.exports.getLiveTrainStatus= function getLiveTrainStatus(request,passtoHan
             + changeCase.titleCase(getJsonData.train.name) 
             + ' and the ' + changeCase.titleCase(getJsonData.position)
         }
-        outPutToEndUser={
-            fulfillmentText:results
-        }
+        outPutToEndUser.payload.google.richResponse.items[0].simpleResponse.textToSpeech=results;
         passtoHandler(outPutToEndUser);
     })
 }
