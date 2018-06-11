@@ -52,7 +52,7 @@ module.exports.getPassingTrain = function(request,passToHandler){
         }
        // outPutToEndUser.payload.google.expectUserResponse=false;
         outPutToEndUser.payload.google.richResponse.items[0].simpleResponse.textToSpeech=results;
-        outPutToEndUser.fulfillmentMessages[0].text.text=results;
+        outPutToEndUser.fulfillmentMessages[0].text.text[results];
         passToHandler(outPutToEndUser);
     });
 }
