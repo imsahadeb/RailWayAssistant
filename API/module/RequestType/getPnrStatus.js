@@ -49,6 +49,7 @@ module.exports.getPnrStatus = function getPnrStatus(request,passtoHandler){
                             +'\n\n'
         }
         outPutToEndUser.payload.google.richResponse.items[0].simpleResponse.textToSpeech=results;
+        outPutToEndUser.fulfillmentText=results;
         passtoHandler(outPutToEndUser);
     })
       

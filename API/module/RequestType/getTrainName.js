@@ -33,6 +33,7 @@ module.exports.getTrainName = function(request,passToHandler){
             
         }
         outPutToEndUser.payload.google.richResponse.items[0].simpleResponse.textToSpeech=results;
+        outPutToEndUser.fulfillmentText=results;
         passToHandler(outPutToEndUser);
     })
 }

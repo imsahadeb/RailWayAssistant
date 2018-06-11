@@ -41,8 +41,9 @@ module.exports.getTrainSchedule = function(request,passToHandler){
             }
         }
         console.log('Results: '+results);
-        outPutToEndUser.payload.google.expectUserResponse=false;
+        
         outPutToEndUser.payload.google.richResponse.items[0].simpleResponse.textToSpeech=results;
+        outPutToEndUser.fulfillmentText=results;
         passToHandler(outPutToEndUser);
     })
 
