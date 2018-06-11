@@ -24,6 +24,8 @@ module.exports = {
     API_KEY_2:"q86si59pft",
     API_KEY_1:'0og4a2g5ij',
     API_KEY_3:'',
+    TWILIO_ACOUNT_SID:'AC541548859ee1372e7ea451b1812c97b8',
+    TWILIO_AOUTH_CODE:'hidef13a46b9d6cb62e24ee0fdda2d4fdd7f',
     //||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
     ////////////////////////////******PARSING PARAMETERS***********///////////////////
@@ -32,6 +34,17 @@ module.exports = {
     ResponseFormat:{
       "fulfillmentText":"",
         "payload": {
+          "facebook":{
+            "text": "Here is a quick reply!",
+            "quick_replies":[
+              {
+                "content_type":"text",
+                "title":"Search",
+                "payload":"<POSTBACK_PAYLOAD>",
+              
+              }, 
+            ]
+          },
           "google": {
             "expectUserResponse": true,
             "richResponse": {
