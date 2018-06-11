@@ -31,6 +31,7 @@ module.exports.getFareDetails = function(request,passToHandler){
            
         }
         outPutToEndUser.payload.google.richResponse.items[0].simpleResponse.textToSpeech=results;
+        outPutToEndUser.payload.facebook.text=results;
         outPutToEndUser.fulfillmentText=results;
         passtoHandler(outPutToEndUser);
     });

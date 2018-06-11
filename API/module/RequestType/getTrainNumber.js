@@ -31,6 +31,7 @@ module.exports.getTrainNumber = function(request,passToHandler){
             results='Train Name: ' +trainName+', '+'Tran Number: '+trainNumber
        }
        outPutToEndUser.payload.google.richResponse.items[0].simpleResponse.textToSpeech=results;
+       outPutToEndUser.payload.facebook.text=results;
        outPutToEndUser.fulfillmentText=results;
         passToHandler(outPutToEndUser);
     })

@@ -28,6 +28,7 @@ module.exports.getLiveTrainStatus= function getLiveTrainStatus(request,passtoHan
             + ' and the ' + changeCase.titleCase(getJsonData.position)
         }
         outPutToEndUser.payload.google.richResponse.items[0].simpleResponse.textToSpeech=results;
+        outPutToEndUser.payload.facebook.text=results;
         outPutToEndUser.fulfillmentText=results;
         passtoHandler(outPutToEndUser);
     })

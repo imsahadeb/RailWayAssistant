@@ -58,6 +58,7 @@ module.exports.getListofTrainBetweenStation = function(request,passToHandler){
     }
      // outPutToEndUser.payload.google.expectUserResponse=false;
       outPutToEndUser.payload.google.richResponse.items[0].simpleResponse.textToSpeech=results;
+      outPutToEndUser.payload.facebook.text=results;
       outPutToEndUser.fulfillmentText=results;
 
         passToHandler(outPutToEndUser);

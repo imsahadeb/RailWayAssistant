@@ -53,6 +53,7 @@ module.exports.getPassingTrain = function(request,passToHandler){
         }
        // outPutToEndUser.payload.google.expectUserResponse=false;
         outPutToEndUser.payload.google.richResponse.items[0].simpleResponse.textToSpeech=results;
+        outPutToEndUser.payload.facebook.text=results;
         outPutToEndUser.fulfillmentText=results;
         outPutToEndUser.payload.facebook.text=results;
         passToHandler(outPutToEndUser);

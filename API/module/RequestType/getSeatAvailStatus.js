@@ -48,6 +48,7 @@ module.exports.getSeatAvailStatus = function(request,passToHandler){
                  //    console.log(results);
         }
         outPutToEndUser.payload.google.richResponse.items[0].simpleResponse.textToSpeech=results;
+        outPutToEndUser.payload.facebook.text=results;
         outPutToEndUser.fulfillmentText=results;
         passToHandler(outPutToEndUser);
         
