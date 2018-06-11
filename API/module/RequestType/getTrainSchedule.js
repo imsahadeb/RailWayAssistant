@@ -24,12 +24,12 @@ module.exports.getTrainSchedule = function(request,passToHandler){
         }
 
         else{
-            tarinName=getJsonData.train.name;
+            tarinName=changeCase.titleCase(getJsonData.train.name);
             trainNo = getJsonData.train.number;
             route= getJsonData.route
            
             for(i=0;i<route.length;i++){
-                stationName = route[i].station.name;
+                stationName =changeCase.titleCase(route[i].station.name);
                 arrTime = route[i].scharr;
                 depTime = route[i].schdep;
                 haltTime = route[i].halt;

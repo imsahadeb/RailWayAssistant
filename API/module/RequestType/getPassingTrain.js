@@ -35,7 +35,8 @@ module.exports.getPassingTrain = function(request,passToHandler){
         else{
         let trainList = getJsonData.trains;
           for(i=0;i<trainList.length;i++){
-              tarinName= trainList[i].name;
+            //  tarinName= trainList[i].name;
+            tarinName=changeCase.titleCase(trainList[i].name);
               trainNumbr= trainList[i].number;
               schArrTime = trainList[i].scharr;
               currently = trainList[i].delayarr;

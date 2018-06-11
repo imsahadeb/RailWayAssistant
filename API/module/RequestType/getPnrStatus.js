@@ -20,7 +20,8 @@ module.exports.getPnrStatus = function getPnrStatus(request,passtoHandler){
 
         else{
            // let getJsonData = JSON.parse(getResponseFromAPI);
-            trainName=getJsonData.train.name;
+          //  trainName=;
+            trainName=changeCase.titleCase(getJsonData.train.name);
             trainNumber=getJsonData.train.number;
             pnrNumber=getJsonData.pnr;
             pnrCurrentStatus=getJsonData.passengers[0].current_status;
@@ -52,7 +53,7 @@ module.exports.getPnrStatus = function getPnrStatus(request,passtoHandler){
         outPutToEndUser.fulfillmentText=results;
         outPutToEndUser.payload.google.richResponse.suggestions[0].title="Send sms";
         outPutToEndUser.payload.google.richResponse.suggestions[1].title="Check Another PNR";
-        
+
 
         passtoHandler(outPutToEndUser);
     })
