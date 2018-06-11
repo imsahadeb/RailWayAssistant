@@ -15,7 +15,7 @@ module.exports.getPassingTrain = function(request,passToHandler){
     //     STATION_CODE=outPutContextParameters.STATION_CODE
     // }
     console.log("station: "+ STATION_CODE);
-    var TIME_WINDOW = parameters.TIME_WINDOW.amount.trim();
+    var TIME_WINDOW = parameters.TIME_WINDOW.amount;
     // if(TIME_WINDOW=='undefined'){
     //     TIME_WINDOW=outPutContextParameters.TIME_WINDOW.amount;
     // }
