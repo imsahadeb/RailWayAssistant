@@ -9,12 +9,12 @@ const getDataFromConstantFile = require('../../../constraints/constant');
 
 module.exports.getSeatAvailStatus = function(request,passToHandler){
     let parameters =request.body.queryResult.parameters;
-    let TRAIN_NO=parameters.TRAIN_NO;
-    let SOURCE_STN = parameters.SOURCE_STN;
-    let DEST_STN= parameters.DEST_STN;
-    let date = parameters.DATE;
+    let TRAIN_NO=parameters.TRAIN_NO.trim();
+    let SOURCE_STN = parameters.SOURCE_STN.trim();
+    let DEST_STN= parameters.DEST_STN.trim();
+    let date = parameters.DATE.trim();
     DATE = moment(date,'YYYY-MM-DD').format('DD-MM-YYYY');
-    let SEAT_CLASS = parameters.SEAT_CLASS;
+    let SEAT_CLASS = parameters.SEAT_CLASS.trim();
 
     let URL = getDataFromConstantFile.API_HOST +'/v2/check-seat/train/'+TRAIN_NO+'/source/'
     +SOURCE_STN+'/dest/'+DEST_STN+'/date/'+DATE+'/pref/'+SEAT_CLASS+'/quota/gn/apikey/'

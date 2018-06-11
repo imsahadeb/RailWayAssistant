@@ -6,7 +6,7 @@ const getDataFromConstantFile = require('../../../constraints/constant');
 
 module.exports.getTrainNumber = function(request,passToHandler){
     let parameters =request.body.queryResult.parameters;
-    let TRAIN_NAME = parameters.TRAIN_NAME;
+    let TRAIN_NAME = parameters.TRAIN_NAME.trim();
     console.log("TRAIN NO: "+TRAIN_NAME);
     let URL = getDataFromConstantFile.API_HOST +'/v2/name-number/train/'+TRAIN_NAME
               +'/apikey/'+getDataFromConstantFile.API_KEY_1+'/';

@@ -10,12 +10,12 @@ module.exports.getPassingTrain = function(request,passToHandler){
     let parameters =request.body.queryResult.parameters;
     var outPutContextParameters=request.body.queryResult.outputContexts[0].parameters;
     console.log(outPutContextParameters);
-    var STATION_CODE = outPutContextParameters.STATION_CODE;
+    var STATION_CODE = outPutContextParameters.STATION_CODE.trim();
     // if(STATION_CODE=='undefined'){
     //     STATION_CODE=outPutContextParameters.STATION_CODE
     // }
     console.log("station: "+ STATION_CODE);
-    var TIME_WINDOW = parameters.TIME_WINDOW.amount;
+    var TIME_WINDOW = parameters.TIME_WINDOW.amount.trim();
     // if(TIME_WINDOW=='undefined'){
     //     TIME_WINDOW=outPutContextParameters.TIME_WINDOW.amount;
     // }

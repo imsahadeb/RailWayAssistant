@@ -7,9 +7,9 @@ module.exports.getListofTrainBetweenStation = function(request,passToHandler){
     // https://api.railwayapi.com/v2/between/source/
     // <stn code>/dest/<stn code>/date/<dd-mm-yyyy>/apikey/<apikey>/
     let parameters =request.body.queryResult.parameters;
-    let SOURCE_STN = parameters.SOURCE_STN;
-    let DEST_STN = parameters.DEST_STN;
-    let DATE = parameters.DATE;
+    let SOURCE_STN = parameters.SOURCE_STN.trim();
+    let DEST_STN = parameters.DEST_STN.trim();
+    let DATE = parameters.DATE.trim();
     if(DATE=='undefined'|| DATE==''){
         let date = new Date();
         console.log('date: '+date);

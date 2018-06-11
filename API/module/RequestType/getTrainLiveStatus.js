@@ -5,8 +5,8 @@ const getDataFromConstantFile = require('../../../constraints/constant');
 
 module.exports.getLiveTrainStatus= function getLiveTrainStatus(request,passtoHandler){
     let parameters = request.body.queryResult.parameters;
-    let TRAIN_NO = parameters['TRAIN_NO'];
-    let TRAIN_DATE =moment(parameters.DATE,'YYYY-MM-DD').format('DD-MM-YYYY');
+    let TRAIN_NO = parameters['TRAIN_NO'].trim();
+    let TRAIN_DATE =moment(parameters.DATE.trim(),'YYYY-MM-DD').format('DD-MM-YYYY');
     console.log("TRAIN_DATE: " +TRAIN_DATE);
     let url = getDataFromConstantFile.API_HOST + '/v2/live/train/'+TRAIN_NO+'/date/'
     +TRAIN_DATE+'/apikey/'+getDataFromConstantFile.API_KEY_1 +'/';
