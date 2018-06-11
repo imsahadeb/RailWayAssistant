@@ -35,14 +35,20 @@ module.exports = {
       "fulfillmentText":"",
         "payload": {
           "facebook":{
-            "text": "Here is a quick reply!",
+            "text": "",
             "quick_replies":[
               {
                 "content_type":"text",
-                "title":"Search",
+                "title":"PNR Status",
                 "payload":"<POSTBACK_PAYLOAD>",
               
-              }, 
+              },
+              {
+                "content_type":"text",
+                "title":"Live Station",
+                "payload":"<POSTBACK_PAYLOAD>",
+
+              }
             ]
           },
           "google": {

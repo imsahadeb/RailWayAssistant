@@ -32,7 +32,7 @@ module.exports.getTrainSchedule = function(request,passToHandler){
                 stationName =changeCase.titleCase(route[i].station.name);
                 arrTime = route[i].scharr;
                 depTime = route[i].schdep;
-                haltTime = route[i].halt;
+                haltTime = route[i].haltcd;
                 distFromSource = route[i].distance;
     
                 results+='\n'+"Station: " +stationName +" Distance :"+distFromSource+'km'+'\n'
