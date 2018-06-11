@@ -40,14 +40,24 @@ module.exports = {
               {
                 "content_type":"text",
                 "title":"PNR Status",
-                "payload":"<POSTBACK_PAYLOAD>",
+                "payload":"PNR Status",
               
               },
               {
                 "content_type":"text",
                 "title":"Live Station",
-                "payload":"<POSTBACK_PAYLOAD>",
+                "payload":"Live Station",
 
+              },
+              {
+                "content_type":"text",
+                "title":"Check Ticket",
+                "payload":"Check ticket",
+              },
+              {
+                "content_type":"text",
+                "title":"train Schedule",
+                "payload":"Train Schedule",
               }
             ]
           },
