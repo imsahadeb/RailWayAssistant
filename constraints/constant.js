@@ -29,6 +29,7 @@ module.exports = {
 
 
     ResponseFormat:{
+      "fulfillment":"",
         "payload": {
           "google": {
             "expectUserResponse": true,

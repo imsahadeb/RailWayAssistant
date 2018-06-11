@@ -27,9 +27,7 @@ module.exports.getTrainName = function(request,passToHandler){
            // let getJsonData = JSON.parse(getResponseFromApi);
             let trainName = getJsonData.train.name;
             let trainNumber = getJsonData.train.number;
-            //  outPutToEndUser={
-            //      'fulfillmentText':
-            //  }
+          
     
             results='Train Name: ' +trainName+', '+'Tran Number: '+trainNumber
             
