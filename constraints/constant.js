@@ -16,7 +16,7 @@ module.exports = {
     FIND_TRAIN_NUMBER_INTENT:'find train number',
     GET_TRAIN_SCHEDULE_INTENT:'get train schedule',
     GET_FARE_DETAILS_INTENT:'get train fare',
-    SEND_PNR_ON_MOBILE_INTENT:'Check_Pnr_Status_Send_SMS'
+    SEND_PNR_ON_MOBILE_INTENT:'Check_Pnr_Status_Send_SMS',
     //|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
     ////////////////////////////////*****API INORMATION*****\\\\\\\\\\\\\\\\\\\\\\\\\\\\
