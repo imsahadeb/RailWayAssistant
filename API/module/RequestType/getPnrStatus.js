@@ -50,6 +50,10 @@ module.exports.getPnrStatus = function getPnrStatus(request,passtoHandler){
         }
         outPutToEndUser.payload.google.richResponse.items[0].simpleResponse.textToSpeech=results;
         outPutToEndUser.fulfillmentText=results;
+        outPutToEndUser.payload.google.richResponse.suggestions[0].title="Send sms";
+        outPutToEndUser.payload.google.richResponse.suggestions[1].title="Check Another PNR";
+        
+
         passtoHandler(outPutToEndUser);
     })
       
