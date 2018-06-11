@@ -6,7 +6,7 @@ const getDataFromConstantFile = require('../../../constraints/constant');
 
 module.exports.getPnrStatus = function getPnrStatus(request,passtoHandler){
     let parameters =request.body.queryResult.parameters;
-    let PNR_NO =parameters.PNR_NO.trim();
+    let PNR_NO =parameters.PNR_NO;
     let URL = getDataFromConstantFile.API_HOST + '/v2/pnr-status/pnr/' + PNR_NO + '/apikey/'
      + getDataFromConstantFile.API_KEY_1 + '/';
      fromRailWayAPI.callTheRailwayApi(URL,(getResponseFromAPI)=>{

@@ -8,7 +8,7 @@ module.exports.getTrainName = function(request,passToHandler){
 
   //  https://api.railwayapi.com/v2/name-number/train/<name or number>/apikey/<apikey>/
     let parameters =request.body.queryResult.parameters;
-    let TRAIN_NO = parameters.TRAIN_NO.trim();
+    let TRAIN_NO = parameters.TRAIN_NO;
     console.log("TRAIN NO: "+TRAIN_NO);
     let URL = getDataFromConstantFile.API_HOST +'/v2/name-number/train/'+TRAIN_NO
               +'/apikey/'+getDataFromConstantFile.API_KEY_1+'/';

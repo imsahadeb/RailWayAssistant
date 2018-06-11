@@ -10,7 +10,7 @@ module.exports.getPassingTrain = function(request,passToHandler){
     let parameters =request.body.queryResult.parameters;
     var outPutContextParameters=request.body.queryResult.outputContexts[0].parameters;
     console.log(outPutContextParameters);
-    var STATION_CODE = outPutContextParameters.STATION_CODE.trim();
+    var STATION_CODE = outPutContextParameters.STATION_CODE;
     // if(STATION_CODE=='undefined'){
     //     STATION_CODE=outPutContextParameters.STATION_CODE
     // }

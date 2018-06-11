@@ -7,7 +7,7 @@ const getDataFromConstantFile = require('../../../constraints/constant');
 
 module.exports.getTrainSchedule = function(request,passToHandler){
     let parameters =request.body.queryResult.parameters;
-    let TRAIN_NO = parameters.TRAIN_NO.trim();
+    let TRAIN_NO = parameters.TRAIN_NO;
 
     
     let URL = getDataFromConstantFile.API_HOST + '/v2/route/train/'
