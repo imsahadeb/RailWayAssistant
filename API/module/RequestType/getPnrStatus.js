@@ -54,7 +54,7 @@ module.exports.getPnrStatus = function getPnrStatus(request,passtoHandler){
         outPutToEndUser.payload.facebook.text=results;
         outPutToEndUser.payload.facebook.quick_replies[0].payload='Send SMS';
         outPutToEndUser.payload.facebook.quick_replies[0].title='Send SMS';
-        outPutToEndUser.payload.google.richResponse.suggestions[0].title="Send sms";
+        outPutToEndUser.payload.google.richResponse.suggestions[0].title="Send SMS";
         outPutToEndUser.payload.google.richResponse.suggestions[1].title="Check Another PNR";
 
 

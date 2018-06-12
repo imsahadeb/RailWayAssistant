@@ -41,10 +41,13 @@ module.exports.getTrainSchedule = function(request,passToHandler){
             }
         }
         console.log('Results: '+results);
-        
-        outPutToEndUser.payload.google.richResponse.items[0].simpleResponse.textToSpeech=results;
+
+        let richResponse=outPutToEndUser.payload.google.richResponse;
+        richResponse.items[0].simpleResponse.textToSpeech=results;
         outPutToEndUser.payload.facebook.text=results;
         outPutToEndUser.fulfillmentText=results;
+        richResponse.suggestions[0].title='PNR Status';
+        richResponse.suggestions[1].title='LIve Station';
         passToHandler(outPutToEndUser);
     })
 
