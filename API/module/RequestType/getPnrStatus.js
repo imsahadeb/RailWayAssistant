@@ -1,23 +1,72 @@
 const changeCase = require('change-case');
 const moment = require('moment');
+const random = require('random-number');
+
 const fromRailWayAPI = require('../../RailwayApiCall/calRailwayApi');
 const getDataFromConstantFile = require('../../../constraints/constant');
+const getResposeData = require('../../../constraints/responses');
 
 
 module.exports.getPnrStatus = function getPnrStatus(request,passtoHandler){
+    var results='';
     let parameters =request.body.queryResult.parameters;
     let PNR_NO =parameters.PNR_NO;
-    let URL = getDataFromConstantFile.API_HOST + '/v2/pnr-status/pnr/' + PNR_NO + '/apikey/'
-     + getDataFromConstantFile.API_KEY_1 + '/';
-     fromRailWayAPI.callTheRailwayApi(URL,(getResponseFromAPI)=>{
+    PNR_NO=PNR_NO.replace(/ /g,'')
+    if(PNR_NO.length!=10){
+        console.log('PNR: pnr is not 10 digit');
+        if(PNR_NO.length<10){
+            console.log('PNR: pnr is less then 10');
+            results='PNR number is too short. Your PNR number should be atleast 10 digit.'
+        }
+        else{
+            console.log('PNR: pnr is greater then 10');
+            results='PNR number is too big. Your PNR number should be atmost 10 digit, not more then that.'
+        }
+        console.log('Results: '+results);
+        console.log('Results Final: '+results);
+        var outPutToEndUser=getDataFromConstantFile.ResponseFormat;
+        outPutToEndUser.payload.google.richResponse.items[0].simpleResponse.textToSpeech=results;
+        outPutToEndUser.fulfillmentText=results;
+        outPutToEndUser.payload.facebook.text=results;
+        outPutToEndUser.payload.facebook.quick_replies[0].payload='Send SMS';
+        outPutToEndUser.payload.facebook.quick_replies[0].title='Send SMS';
+        outPutToEndUser.payload.google.richResponse.suggestions[0].title="Send SMS";
+        outPutToEndUser.payload.google.richResponse.suggestions[1].title="Check Another PNR";
+
+
+        passtoHandler(outPutToEndUser);
+        
+    }
+  
+
+    else
+    {
+
+        let URL = getDataFromConstantFile.API_HOST + '/v2/pnr-status/pnr/' + PNR_NO + '/apikey/'
+        + getDataFromConstantFile.API_KEY_1 + '/';
+        fromRailWayAPI.callTheRailwayApi(URL,(getResponseFromAPI)=>{
         var getJsonData = JSON.parse(getResponseFromAPI);
         var responseCode=getJsonData.response_code;
         var outPutToEndUser=getDataFromConstantFile.ResponseFormat;
-        var results='';
+       
+       
         if(responseCode!=200){  
-                results='Unable to get results from Server. Please try again later.'    
+            if(responseCode==405){
+                let InvalidPnrResponse =getResposeData.InvalidPNR;
+                let options = {
+                    min:  0,
+                    max:InvalidPnrResponse.length-1
+                  , integer: true
+                  }
+                let randomNumber =random(options);
+                results=InvalidPnrResponse[randomNumber];
+            }
+            else{
+                results='Unable to get results from Server. Please try again later.'  
+            }
+                 
         }
-
+       
         else{
            // let getJsonData = JSON.parse(getResponseFromAPI);
           //  trainName=;
@@ -49,6 +98,7 @@ module.exports.getPnrStatus = function getPnrStatus(request,passtoHandler){
                             +", Chart Status: "+chart
                             +'\n\n'
         }
+        console.log('Results Final: '+results);
         outPutToEndUser.payload.google.richResponse.items[0].simpleResponse.textToSpeech=results;
         outPutToEndUser.fulfillmentText=results;
         outPutToEndUser.payload.facebook.text=results;
@@ -61,5 +111,7 @@ module.exports.getPnrStatus = function getPnrStatus(request,passtoHandler){
         passtoHandler(outPutToEndUser);
     })
       
+ }   
+     
 
 }

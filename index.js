@@ -25,7 +25,7 @@ app.post('/api',(request,res)=>{
         res.status(200).send(getResults);  //start sending the results we receive back to user through dialogflow
         res.end();// closing the connection after sending the all data
     })
-  }).listen(process.env.PORT || 80);
+  }).listen(process.env.PORT || 3000);
   var date = new Date();
   var d = moment(date,'YYYY-DD-MM').format('DD-MM-YYYY');
   console.log('Date: '+d);
