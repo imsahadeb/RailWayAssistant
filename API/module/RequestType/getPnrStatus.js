@@ -11,6 +11,7 @@ module.exports.getPnrStatus = function getPnrStatus(request,passtoHandler){
     var results='';
     let parameters =request.body.queryResult.parameters;
     let PNR =parameters.PNR_NO;
+    PNR = PNR.toString();
     PNR_NO=PNR.replace(/ /g,'');
     if(PNR_NO.length!=10){
         console.log('PNR: pnr is not 10 digit');
