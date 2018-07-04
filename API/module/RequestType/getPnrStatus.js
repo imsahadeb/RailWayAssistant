@@ -42,9 +42,9 @@ module.exports.getPnrStatus = function getPnrStatus(request,passtoHandler){
         outPutToEndUser.payload.google.richResponse.items[0].simpleResponse.textToSpeech=results;
         outPutToEndUser.fulfillmentText=results;
         outPutToEndUser.payload.facebook.text=results;
-        outPutToEndUser.payload.facebook.quick_replies[0].payload='Retry';
-        outPutToEndUser.payload.facebook.quick_replies[0].title='Retry';
-        outPutToEndUser.payload.google.richResponse.suggestions[0].title="Retry";
+        outPutToEndUser.payload.facebook.quick_replies[0].payload='Check PNR';
+        outPutToEndUser.payload.facebook.quick_replies[0].title='Check PNR';
+        outPutToEndUser.payload.google.richResponse.suggestions[0].title="Check PNR";
         //outPutToEndUser.payload.google.richResponse.suggestions[1].title="Check Another PNR";
 
 
