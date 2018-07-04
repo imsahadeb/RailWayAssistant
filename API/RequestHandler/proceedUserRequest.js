@@ -7,6 +7,7 @@ const replace =require('str-replace');
 /////////******* IMPORTINGALL PARTICULAR REQUESTHANDLING FILES  ******\\\\\\\\\\\\
 
 const getDataFromConstantFile = require('../../constraints/constant');
+const fromDefaultResponse=require('../module/RequestType/getdefaultResponse')
 const fromLiveTrain = require('../module/RequestType/getTrainLiveStatus');
 const fromPNR = require('../module/RequestType/getPnrStatus');
 const fromTrainName = require('../module/RequestType/getTrainName');
@@ -33,6 +34,7 @@ function (request,passtoHandler){
     }
     if(intent==getDataFromConstantFile.DEFAULT_INTENT){
        // sendDefaultResponse(request,passtoHandler);
+       fromDefaultResponse.getDefaultResponse(request,passtoHandler);
     }
     if(intent==getDataFromConstantFile.PNR_STATUS_INTENT){
         fromPNR.getPnrStatus(request,passtoHandler);

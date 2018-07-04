@@ -30,6 +30,11 @@ module.exports = {
 
     ////////////////////////////******PARSING PARAMETERS***********///////////////////
 
+    randomOptions:{
+      min: '',
+      max:'', 
+      integer: true
+    },
 
     ResponseFormat:{
       "fulfillmentText":"",
@@ -56,7 +61,7 @@ module.exports = {
               },
               {
                 "content_type":"text",
-                "title":"train Schedule",
+                "title":"Train Schedule",
                 "payload":"Train Schedule",
               }
             ]

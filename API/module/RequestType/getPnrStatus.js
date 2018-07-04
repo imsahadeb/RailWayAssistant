@@ -10,17 +10,30 @@ const getResposeData = require('../../../constraints/responses');
 module.exports.getPnrStatus = function getPnrStatus(request,passtoHandler){
     var results='';
     let parameters =request.body.queryResult.parameters;
-    let PNR_NO =parameters.PNR_NO;
-    PNR_NO=PNR_NO.replace(/ /g,'')
+    let PNR =parameters.PNR_NO;
+    PNR_NO=PNR.replace(/ /g,'');
     if(PNR_NO.length!=10){
         console.log('PNR: pnr is not 10 digit');
         if(PNR_NO.length<10){
+            let getResponseArray=getResposeData.smallPNR;
+            let options=getDataFromConstantFile.randomOptions;
+            options.min=0;
+            options.max=getResponseArray.length-1;
+          //  let randomNumber=random()
+            results=getResponseArray[random(options)];
+            
             console.log('PNR: pnr is less then 10');
-            results='PNR number is too short. Your PNR number should be atleast 10 digit.'
+            //results='PNR number is too short. Your PNR number should be atleast 10 digit.'
         }
         else{
             console.log('PNR: pnr is greater then 10');
-            results='PNR number is too big. Your PNR number should be atmost 10 digit, not more then that.'
+            let getResponseArray=getResposeData.bigPNR;
+            let options=getDataFromConstantFile.randomOptions;
+            options.min=0;
+            options.max=getResponseArray.length-1;
+          //  let randomNumber=random()
+            results=getResponseArray[random(options)];
+            //results='PNR number is too big. Your PNR number should be atmost 10 digit, not more then that.'
         }
         console.log('Results: '+results);
         console.log('Results Final: '+results);
@@ -28,10 +41,10 @@ module.exports.getPnrStatus = function getPnrStatus(request,passtoHandler){
         outPutToEndUser.payload.google.richResponse.items[0].simpleResponse.textToSpeech=results;
         outPutToEndUser.fulfillmentText=results;
         outPutToEndUser.payload.facebook.text=results;
-        outPutToEndUser.payload.facebook.quick_replies[0].payload='Send SMS';
-        outPutToEndUser.payload.facebook.quick_replies[0].title='Send SMS';
-        outPutToEndUser.payload.google.richResponse.suggestions[0].title="Send SMS";
-        outPutToEndUser.payload.google.richResponse.suggestions[1].title="Check Another PNR";
+        outPutToEndUser.payload.facebook.quick_replies[0].payload='Retry';
+        outPutToEndUser.payload.facebook.quick_replies[0].title='Retry';
+        outPutToEndUser.payload.google.richResponse.suggestions[0].title="Retry";
+        //outPutToEndUser.payload.google.richResponse.suggestions[1].title="Check Another PNR";
 
 
         passtoHandler(outPutToEndUser);
@@ -53,11 +66,9 @@ module.exports.getPnrStatus = function getPnrStatus(request,passtoHandler){
         if(responseCode!=200){  
             if(responseCode==405){
                 let InvalidPnrResponse =getResposeData.InvalidPNR;
-                let options = {
-                    min:  0,
-                    max:InvalidPnrResponse.length-1
-                  , integer: true
-                  }
+                let options=getDataFromConstantFile.randomOptions;
+                options.min=0;
+                options.max=InvalidPnrResponse.length-1;
                 let randomNumber =random(options);
                 results=InvalidPnrResponse[randomNumber];
             }
