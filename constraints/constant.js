@@ -21,8 +21,8 @@ module.exports = {
 
     ////////////////////////////////*****API INORMATION*****\\\\\\\\\\\\\\\\\\\\\\\\\\\\
     API_HOST:'https://api.railwayapi.com',
-    API_KEY_2:"fjaxzkx1wg",
-    API_KEY_1:'fjaxzkx1wg',
+    API_KEY_2:"gx441jjcb9",
+    API_KEY_1:'gx441jjcb9',
     API_KEY_3:'',
     TWILIO_ACOUNT_SID:'AC541548859ee1372e7ea451b1812c97b8',
     TWILIO_AOUTH_CODE:'hidef13a46b9d6cb62e24ee0fdda2d4fdd7f',
